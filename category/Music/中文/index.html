@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/resource/main.css">
+  <link rel="stylesheet" href="/resource/parts.css">
+  <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script>
+  <script src="https://cdn.bootcss.com/reqwest/2.0.5/reqwest.min.js"></script>
+  <title>中文 | Test Playground</title>
+</head>
+  <body>
+    <script>
+      var mixins = {}
+    </script>
+    <div id="canvas">
+        <header class="full-wrapper bg space-xs" :class="{'hide-header': hideHeader, 'shrink-header': shrinkHeader, 'blurred': showLoader}">
+  <div class="header-wrap main-wrapper row row-loose">
+    <div class="col-5 text-xl bolder site-name major"><a href="/">Test Playground</a></div>
+      <div class="col-5 menu pointer to-right" @click="showMenu()"><div class="text-l bold inline-block menu-btn" :class="{'menu-open': menuOpen}"><i class="fa fa-chevron-right" aria-hidden="true"></i></div></div>
+      <nav class="nav-body col-8" :class="{'nav-open': menuOpen}">
+        <ul class="h-list to-right sc">
+          <li class="bg-sc-hover space-vh rounded ease" :class="{'nav-active': activeNav=='index' || activeNav=='category' || activeNav=='article'}"><a href="/">Home</a></li>
+          <li class="bg-sc-hover space-vh rounded ease" :class="{'nav-active': activeNav=='tag'}"><a href="/tags/">Tags</a></li>
+          <li class="bg-sc-hover space-vh rounded ease" :class="{'nav-active': activeNav=='archive'}"><a href="/archives/">Archive</a></li>
+        </ul>
+      </nav>
+    </div>
+</header>
+
+        <main class="main-wrapper row row-loose row-top row-wrap space-xs" :class="{blurred: showLoader}">
+          <div class="main-zone-wrapper full-wrapper">
+          
+<section class="zone-main" id="zone-main">
+    <article class="space-s bg-panel rounded article-animate function-container row row-top row-left row-wrap" style="animation-duration: 0.8s">
+        <div class="body-text space-vh col-2 v-list text-s" id="category-navbar">
+            <div id="indicator-bar" class="ease" :style="{top: indicatorTop}"> </div>
+            <ul class="category-selector">
+                <li :class="{'category-indicator': currentCategory == '__archive'}" @click="categorySwitch('__archive')" >All Articles</li>
+                
+                <li :class="{'category-indicator': currentCategory == 'About'}" @click="categorySwitch('About')" class="ease">
+                
+                
+                About
+                </li>
+                
+                <li :class="{'category-indicator': currentCategory == 'Music/English'}" @click="categorySwitch('Music/English')" class="ease">
+                &nbsp; 
+                <span class="text-xxs" aria-hidden="true"> └ </span>
+                English
+                </li>
+                
+                <li :class="{'category-indicator': currentCategory == 'Music/Japanese'}" @click="categorySwitch('Music/Japanese')" class="ease">
+                &nbsp; 
+                <span class="text-xxs" aria-hidden="true"> └ </span>
+                Japanese
+                </li>
+                
+                <li :class="{'category-indicator': currentCategory == 'Music/中文'}" @click="categorySwitch('Music/中文')" class="ease">
+                &nbsp; 
+                <span class="text-xxs" aria-hidden="true"> └ </span>
+                中文
+                </li>
+                
+                <li :class="{'category-indicator': currentCategory == 'Test'}" @click="categorySwitch('Test')" class="ease">
+                
+                
+                Test
+                </li>
+                
+            </ul>
+        </div>
+        <div class="body-text space-vh col-7" id="category-main" :class="{blurred: miniload}">
+            <div class="body-text space-vh bold"><i class="fa fa-folder-o" aria-hidden="true"></i> 中文</div>
+
+<div class="body-text space-vh v-list text-s">
+    <ul>
+        
+        <li>
+            <a href="/Music/%E4%B8%AD%E6%96%87/pop-chinese/" class="major">中文歌曲</a> &nbsp; <span class="minor text-xxs">Aug. 2, 2019</span>
+        </li>
+        
+    </ul>
+</div>
+        </div>
+    </article>    
+</section>
+<script>
+    mixins = {
+        data: {
+            currentCategory: "" ? "__archive" : "Music/中文",
+            indicatorTop: 0,
+            miniload: false
+        },
+        methods: {
+            categorySwitch (cate) {
+                if (cate == this.currentCategory) {
+                    return false
+                }
+                this.currentCategory = cate
+                this.indicatorPosition()
+                this.miniload = true
+                var self = this
+                reqwest({
+                    url: '/parts/category/'+cate+'.html',
+                    type: 'html',
+                    success: function (resp) {                      
+                        document.getElementById('category-main').innerHTML = resp
+                        self.miniload = false
+                    },
+                    error: function () {
+                        self.miniload = false
+                    }
+                })
+                
+                let urls
+                if (cate != "__archive") {
+                    let urlPattern = '/category/{category}/'
+                    urls = urlPattern.replace(/{category}/, cate)
+                    
+                }
+                else {
+                    urls = '/archives/'
+                }
+                window.history.pushState(null, null, urls)
+                
+            },
+            indicatorPosition() {
+                this.$nextTick(() => {
+                    pos = document.querySelector(".category-indicator").offsetTop
+                    this.indicatorTop = pos+"px"
+                })
+            }
+        },
+        mounted() {
+            setTimeout (this.indicatorPosition, 1000)
+        }
+    }
+</script>
+
+          </div>
+          
+        </main>
+
+        <footer class="main-wrapper" :class="{blurred: showLoader}">
+  <div class="space-s between to-center">
+    <div class="space-xxs to-center">
+      <div class="h-list sc">
+        <ul>
+          
+          <li><a href="http://weibo.com/" target="_blank" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a></li>
+          
+          <li><a href="https://twitter.com/" target="_blank" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+          
+          <li><a href="http://instagram.com/" target="_blank" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+          
+        </ul>
+      </div>
+    </div>
+    <div class="text-xs sc">&copy; Admin 2020.<br>Powered by <a href="/" target="_blank">Unknown Project</a></div>
+  </div>
+</footer>
+
+<div class="loader ease" :class="{'loader-on': showLoader}">
+  <div class="lightbox"></div>
+  <div class="loading">
+    <i class="left"></i>
+    <i class="middle"></i>
+    <i class="right"></i>
+  </div>
+</div>
+
+    </div> 
+    
+  <script>
+  Vue.component ('place-holder', {
+      template: "<div class=\"place-holder\" :style=\"{width: phWidth}\">.</div>",
+      props: ['width'],
+      computed: {
+          phWidth() {
+              return this.width + "%"
+          }
+      }
+  })
+  var app = new Vue({
+      el: "#canvas",
+      mixins: [mixins],
+      data: {
+         menuOpen: false,
+         windowScrolled: false,
+         windowScrollUp: false,
+         showLoader: false,
+         activeNav: 'category',
+      },
+      methods: {
+          showMenu () {
+              this.menuOpen = !this.menuOpen;
+          },
+          windowScroller () {
+              var scrolled = document.documentElement.scrollTop || document.body.scrollTop
+              this.windowScrollUp = scrolled < this.windowScrolled
+              this.windowScrolled = scrolled
+          },
+          scrollToTop () {
+              window.scrollTo({ 
+                  top: 0, 
+                  behavior: "smooth" 
+              })
+          },
+          lightsOn () {
+              var self = this
+              setTimeout(function() {
+                  self.scrollToTop ()
+                  self.showLoader = false
+              }, 600)
+          }
+      },
+      mounted () { 
+          window.addEventListener('scroll', this.windowScroller)                
+      },
+      computed: {
+          hideHeader() {
+              return this.windowScrolled > 30
+          },
+          shrinkHeader() {
+              return this.windowScrolled > 30 && this.windowScrollUp
+          },                
+      }
+  })
+</script>  
+  </body>
+</html>

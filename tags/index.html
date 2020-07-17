@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/resource/main.css">
+  <link rel="stylesheet" href="/resource/parts.css">
+  <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script>
+  <script src="https://cdn.bootcss.com/reqwest/2.0.5/reqwest.min.js"></script>
+  <title>Tags | Test Playground</title>
+</head>
+  <body>
+    <script>
+      var mixins = {}
+    </script>
+    <div id="canvas">
+        <header class="full-wrapper bg space-xs" :class="{'hide-header': hideHeader, 'shrink-header': shrinkHeader, 'blurred': showLoader}">
+  <div class="header-wrap main-wrapper row row-loose">
+    <div class="col-5 text-xl bolder site-name major"><a href="/">Test Playground</a></div>
+      <div class="col-5 menu pointer to-right" @click="showMenu()"><div class="text-l bold inline-block menu-btn" :class="{'menu-open': menuOpen}"><i class="fa fa-chevron-right" aria-hidden="true"></i></div></div>
+      <nav class="nav-body col-8" :class="{'nav-open': menuOpen}">
+        <ul class="h-list to-right sc">
+          <li class="bg-sc-hover space-vh rounded ease" :class="{'nav-active': activeNav=='index' || activeNav=='category' || activeNav=='article'}"><a href="/">Home</a></li>
+          <li class="bg-sc-hover space-vh rounded ease" :class="{'nav-active': activeNav=='tag'}"><a href="/tags/">Tags</a></li>
+          <li class="bg-sc-hover space-vh rounded ease" :class="{'nav-active': activeNav=='archive'}"><a href="/archives/">Archive</a></li>
+        </ul>
+      </nav>
+    </div>
+</header>
+
+        <main class="main-wrapper row row-loose row-top row-wrap space-xs" :class="{blurred: showLoader}">
+          <div class="main-zone-wrapper full-wrapper">
+          
+<section class="zone-main" id="zone-main">
+    <article class="space-s bg-panel rounded article-animate function-container" style="animation-duration: 0.8s">
+        <div class="body-text space-vh bold">
+            <i class="fa fa-tag" aria-hidden="true"></i> Most Used Tags
+        </div>
+        <div class="body-text space-vh">
+            <div class="h-list text-xs">
+                <ul>
+                
+                <li><a href="#test">test (8)</a></li>
+                
+                <li><a href="#English">English (6)</a></li>
+                
+                <li><a href="#中文">中文 (3)</a></li>
+                
+                <li><a href="#Japanese">Japanese (2)</a></li>
+                
+                <li><a href="#Pop">Pop (2)</a></li>
+                
+                <li><a href="#Folk">Folk (2)</a></li>
+                
+                <li><a href="#Small">Small (1)</a></li>
+                
+                <li><a href="#Chinese">Chinese (1)</a></li>
+                
+                <li><a href="#儿歌">儿歌 (1)</a></li>
+                
+                </ul>
+            </div>
+        </div>
+        <div class="body-text between space-vh bold">
+            <div class="between"><i class="fa fa-tag" aria-hidden="true"></i> All Tags</div>
+        </div>
+        <div class="body-text space-vh v-list text-s">
+            <ul>
+                
+                <li id="test">
+                    <span class="theme-color bold"> test </span>
+                    <div>
+                        <ul>
+                            
+                            <li>
+                                <a href="/About/hello-world/" class="major">Welcome to the Playground</a> &nbsp; <span class="minor text-xxs">Jul. 17, 2020</span>
+                            </li>
+                            
+                            <li>
+                                <a href="/About/abc/" class="major">Test Goes On</a> &nbsp; <span class="minor text-xxs">Jan. 11, 2020</span>
+                            </li>
+                            
+                            <li>
+                                <a href="/About/chinese/" class="major">Chinese Test</a> &nbsp; <span class="minor text-xxs">Dec. 12, 2019</span>
+                            </li>
+                            
+                            <li>
+                                <a href="/About/a12/" class="major">About Node.js®</a> &nbsp; <span class="minor text-xxs">Dec. 2, 2019</span>
+                            </li>
+                            
+                            <li>
+                                <a href="/Music/Japanese/arigato/" class="major">ありがとう</a> &nbsp; <span class="minor text-xxs">Nov. 1, 2019</span>
+                            </li>
+                            
+                            <li>
+                                <a href="/Music/%E4%B8%AD%E6%96%87/pop-chinese/" class="major">中文歌曲</a> &nbsp; <span class="minor text-xxs">Aug. 2, 2019</span>
+                            </li>
+                            
+                            <li>
+                                <a href="/Music/English/auld/" class="major">Auld Lang Syne</a> &nbsp; <span class="minor text-xxs">Jan. 3, 2019</span>
+                            </li>
+                            
+                            <li>
+                                <a href="/Music/Japanese/%E9%8A%80%E3%81%AE%E9%BE%8D%E3%81%AE%E8%83%8C%E3%81%AB%E4%B9%97%E3%81%A3%E3%81%A6/" class="major">銀の龍の背に乗って</a> &nbsp; <span class="minor text-xxs">Jan. 1, 2019</span>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                    <br>
+                </li>
+                
+                <li id="English">
+                    <span class="theme-color bold"> English </span>
+                    <div>
+                        <ul>
+                            
+                            <li>
+                                <a href="/About/hello-world/" class="major">Welcome to the Playground</a> &nbsp; <span class="minor text-xxs">Jul. 17, 2020</span>
+                            </li>
+                            
+                            <li>
+                                <a href="/Test/why%E7%9A%84%E5%89%AF%E6%9C%AC/" class="major">829 Nice Nice Nice</a> &nbsp; <span class="minor text-xxs">Feb. 11, 2020</span>
+                            </li>
+                            
+                            <li>
+                                <a href="/About/abc/" class="major">Test Goes On</a> &nbsp; <span class="minor text-xxs">Jan. 11, 2020</span>
+                            </li>
+                            
+                            <li>
+                                <a href="/Music/English/auld/" class="major">Auld Lang Syne</a> &nbsp; <span class="minor text-xxs">Jan. 3, 2019</span>
+                            </li>
+                            
+                            <li>
+                                <a href="/Music/English/twinkle-twinkle-little-star/" class="major">Twinkle Twinkle Little Star</a> &nbsp; <span class="minor text-xxs">Aug. 2, 2018</span>
+                            </li>
+                            
+                            <li>
+                                <a href="/Test/why/" class="major">Where have you been?</a> &nbsp; <span class="minor text-xxs">Jul. 21, 2018</span>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                    <br>
+                </li>
+                
+                <li id="Small">
+                    <span class="theme-color bold"> Small </span>
+                    <div>
+                        <ul>
+                            
+                            <li>
+                                <a href="/About/abc/" class="major">Test Goes On</a> &nbsp; <span class="minor text-xxs">Jan. 11, 2020</span>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                    <br>
+                </li>
+                
+                <li id="Chinese">
+                    <span class="theme-color bold"> Chinese </span>
+                    <div>
+                        <ul>
+                            
+                            <li>
+                                <a href="/About/chinese/" class="major">Chinese Test</a> &nbsp; <span class="minor text-xxs">Dec. 12, 2019</span>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                    <br>
+                </li>
+                
+                <li id="中文">
+                    <span class="theme-color bold"> 中文 </span>
+                    <div>
+                        <ul>
+                            
+                            <li>
+                                <a href="/About/chinese/" class="major">Chinese Test</a> &nbsp; <span class="minor text-xxs">Dec. 12, 2019</span>
+                            </li>
+                            
+                            <li>
+                                <a href="/Music/%E4%B8%AD%E6%96%87/pop-chinese/" class="major">中文歌曲</a> &nbsp; <span class="minor text-xxs">Aug. 2, 2019</span>
+                            </li>
+                            
+                            <li>
+                                <a href="/Test/why/" class="major">Where have you been?</a> &nbsp; <span class="minor text-xxs">Jul. 21, 2018</span>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                    <br>
+                </li>
+                
+                <li id="Japanese">
+                    <span class="theme-color bold"> Japanese </span>
+                    <div>
+                        <ul>
+                            
+                            <li>
+                                <a href="/Music/Japanese/arigato/" class="major">ありがとう</a> &nbsp; <span class="minor text-xxs">Nov. 1, 2019</span>
+                            </li>
+                            
+                            <li>
+                                <a href="/Music/Japanese/%E9%8A%80%E3%81%AE%E9%BE%8D%E3%81%AE%E8%83%8C%E3%81%AB%E4%B9%97%E3%81%A3%E3%81%A6/" class="major">銀の龍の背に乗って</a> &nbsp; <span class="minor text-xxs">Jan. 1, 2019</span>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                    <br>
+                </li>
+                
+                <li id="Pop">
+                    <span class="theme-color bold"> Pop </span>
+                    <div>
+                        <ul>
+                            
+                            <li>
+                                <a href="/Music/Japanese/arigato/" class="major">ありがとう</a> &nbsp; <span class="minor text-xxs">Nov. 1, 2019</span>
+                            </li>
+                            
+                            <li>
+                                <a href="/Music/Japanese/%E9%8A%80%E3%81%AE%E9%BE%8D%E3%81%AE%E8%83%8C%E3%81%AB%E4%B9%97%E3%81%A3%E3%81%A6/" class="major">銀の龍の背に乗って</a> &nbsp; <span class="minor text-xxs">Jan. 1, 2019</span>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                    <br>
+                </li>
+                
+                <li id="Folk">
+                    <span class="theme-color bold"> Folk </span>
+                    <div>
+                        <ul>
+                            
+                            <li>
+                                <a href="/Music/%E4%B8%AD%E6%96%87/pop-chinese/" class="major">中文歌曲</a> &nbsp; <span class="minor text-xxs">Aug. 2, 2019</span>
+                            </li>
+                            
+                            <li>
+                                <a href="/Music/English/auld/" class="major">Auld Lang Syne</a> &nbsp; <span class="minor text-xxs">Jan. 3, 2019</span>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                    <br>
+                </li>
+                
+                <li id="儿歌">
+                    <span class="theme-color bold"> 儿歌 </span>
+                    <div>
+                        <ul>
+                            
+                            <li>
+                                <a href="/Music/English/twinkle-twinkle-little-star/" class="major">Twinkle Twinkle Little Star</a> &nbsp; <span class="minor text-xxs">Aug. 2, 2018</span>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                    <br>
+                </li>
+                
+            </ul>
+        </div>
+    </article>    
+</section>
+
+          </div>
+          
+        </main>
+
+        <footer class="main-wrapper" :class="{blurred: showLoader}">
+  <div class="space-s between to-center">
+    <div class="space-xxs to-center">
+      <div class="h-list sc">
+        <ul>
+          
+          <li><a href="http://weibo.com/" target="_blank" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a></li>
+          
+          <li><a href="https://twitter.com/" target="_blank" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+          
+          <li><a href="http://instagram.com/" target="_blank" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+          
+        </ul>
+      </div>
+    </div>
+    <div class="text-xs sc">&copy; Admin 2020.<br>Powered by <a href="/" target="_blank">Unknown Project</a></div>
+  </div>
+</footer>
+
+<div class="loader ease" :class="{'loader-on': showLoader}">
+  <div class="lightbox"></div>
+  <div class="loading">
+    <i class="left"></i>
+    <i class="middle"></i>
+    <i class="right"></i>
+  </div>
+</div>
+
+    </div> 
+    
+  <script>
+  Vue.component ('place-holder', {
+      template: "<div class=\"place-holder\" :style=\"{width: phWidth}\">.</div>",
+      props: ['width'],
+      computed: {
+          phWidth() {
+              return this.width + "%"
+          }
+      }
+  })
+  var app = new Vue({
+      el: "#canvas",
+      mixins: [mixins],
+      data: {
+         menuOpen: false,
+         windowScrolled: false,
+         windowScrollUp: false,
+         showLoader: false,
+         activeNav: 'tag',
+      },
+      methods: {
+          showMenu () {
+              this.menuOpen = !this.menuOpen;
+          },
+          windowScroller () {
+              var scrolled = document.documentElement.scrollTop || document.body.scrollTop
+              this.windowScrollUp = scrolled < this.windowScrolled
+              this.windowScrolled = scrolled
+          },
+          scrollToTop () {
+              window.scrollTo({ 
+                  top: 0, 
+                  behavior: "smooth" 
+              })
+          },
+          lightsOn () {
+              var self = this
+              setTimeout(function() {
+                  self.scrollToTop ()
+                  self.showLoader = false
+              }, 600)
+          }
+      },
+      mounted () { 
+          window.addEventListener('scroll', this.windowScroller)                
+      },
+      computed: {
+          hideHeader() {
+              return this.windowScrolled > 30
+          },
+          shrinkHeader() {
+              return this.windowScrolled > 30 && this.windowScrollUp
+          },                
+      }
+  })
+</script>  
+  </body>
+</html>

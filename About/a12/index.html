@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/resource/main.css">
+  <link rel="stylesheet" href="/resource/parts.css">
+  <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script>
+  <script src="https://cdn.bootcss.com/reqwest/2.0.5/reqwest.min.js"></script>
+  <title>About Node.js® | Test Playground</title>
+</head>
+  <body>
+    <script>
+      var mixins = {}
+    </script>
+    <div id="canvas">
+        <header class="full-wrapper bg space-xs" :class="{'hide-header': hideHeader, 'shrink-header': shrinkHeader, 'blurred': showLoader}">
+  <div class="header-wrap main-wrapper row row-loose">
+    <div class="col-5 text-xl bolder site-name major"><a href="/">Test Playground</a></div>
+      <div class="col-5 menu pointer to-right" @click="showMenu()"><div class="text-l bold inline-block menu-btn" :class="{'menu-open': menuOpen}"><i class="fa fa-chevron-right" aria-hidden="true"></i></div></div>
+      <nav class="nav-body col-8" :class="{'nav-open': menuOpen}">
+        <ul class="h-list to-right sc">
+          <li class="bg-sc-hover space-vh rounded ease" :class="{'nav-active': activeNav=='index' || activeNav=='category' || activeNav=='article'}"><a href="/">Home</a></li>
+          <li class="bg-sc-hover space-vh rounded ease" :class="{'nav-active': activeNav=='tag'}"><a href="/tags/">Tags</a></li>
+          <li class="bg-sc-hover space-vh rounded ease" :class="{'nav-active': activeNav=='archive'}"><a href="/archives/">Archive</a></li>
+        </ul>
+      </nav>
+    </div>
+</header>
+
+        <main class="main-wrapper row row-loose row-top row-wrap space-xs" :class="{blurred: showLoader}">
+          <div class="main-zone-wrapper full-wrapper">
+          
+<section class="zone-main" id="zone-main">
+    <article class="space-s bg-panel rounded row row-loose row-top article-animate" style="animation-duration: 0.8s">
+      <div>
+        <div class="title-area">
+            <div class="text-xs minor">Dec. 2, 2019</div>  
+            <div class="text-l bold theme-color">About Node.js®</div>
+        </div>
+        <div class="body-text between space-vh">
+            <p>As an asynchronous event-driven JavaScript runtime, Node.js is designed to build scalable network applications. In the following &quot;hello world&quot; example, many connections can be handled concurrently. Upon each connection, the callback is fired, but if there is no work to be done, Node.js will sleep. </p>
+<a name="more"></a>
+<p>Node.js is similar in design to, and influenced by, systems like Ruby&#39;s <a href="https://">Event Machine</a> and Python&#39;s Twisted. Node.js takes the event model a bit further. It presents an event loop as a runtime construct instead of as a library. In other systems, there is always a blocking call to start the event-loop. Typically, behavior is defined through callbacks at the beginning of a script, and at the end a server is started through a blocking call like EventMachine::run(). In Node.js, there is no such start-the-event-loop call. Node.js simply enters the event loop after executing the input script. Node.js exits the event loop when there are no more callbacks to perform. This behavior is like browser JavaScript — the event loop is hidden from the user.</p>
+<p><a href="https://nodejs.org/en/about/">https://nodejs.org/en/about/</a></p>
+
+        </div>
+        <div class="article-info between text-xs sc">
+            <div class="space-vh"><i class="fa fa-folder-o" aria-hidden="true"></i> <a href="/category/About/">About</a></div>
+            
+            <div class="space-vh"><i class="fa fa-tag" aria-hidden="true"></i>
+                <div class="h-list inline-block">
+                    <ul>
+                        
+                        <li><a href="/tags/#test">test</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+      </div>
+      
+    </article>
+   
+    <div class="article-adjacent full-wrapper row row-top row-loose row-wrap text-xs sc">
+        
+        <div class="space-vh">Previous: <a href="/About/chinese/">Chinese Test</a></div>
+        
+        
+        <div class="space-vh">Next: <a href="/Music/Japanese/arigato/">ありがとう</a></div>
+        
+    </div>
+</section>
+
+          </div>
+          
+        </main>
+
+        <footer class="main-wrapper" :class="{blurred: showLoader}">
+  <div class="space-s between to-center">
+    <div class="space-xxs to-center">
+      <div class="h-list sc">
+        <ul>
+          
+          <li><a href="http://weibo.com/" target="_blank" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a></li>
+          
+          <li><a href="https://twitter.com/" target="_blank" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+          
+          <li><a href="http://instagram.com/" target="_blank" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+          
+        </ul>
+      </div>
+    </div>
+    <div class="text-xs sc">&copy; Admin 2020.<br>Powered by <a href="/" target="_blank">Unknown Project</a></div>
+  </div>
+</footer>
+
+<div class="loader ease" :class="{'loader-on': showLoader}">
+  <div class="lightbox"></div>
+  <div class="loading">
+    <i class="left"></i>
+    <i class="middle"></i>
+    <i class="right"></i>
+  </div>
+</div>
+
+    </div> 
+    
+  <script>
+  Vue.component ('place-holder', {
+      template: "<div class=\"place-holder\" :style=\"{width: phWidth}\">.</div>",
+      props: ['width'],
+      computed: {
+          phWidth() {
+              return this.width + "%"
+          }
+      }
+  })
+  var app = new Vue({
+      el: "#canvas",
+      mixins: [mixins],
+      data: {
+         menuOpen: false,
+         windowScrolled: false,
+         windowScrollUp: false,
+         showLoader: false,
+         activeNav: 'index',
+      },
+      methods: {
+          showMenu () {
+              this.menuOpen = !this.menuOpen;
+          },
+          windowScroller () {
+              var scrolled = document.documentElement.scrollTop || document.body.scrollTop
+              this.windowScrollUp = scrolled < this.windowScrolled
+              this.windowScrolled = scrolled
+          },
+          scrollToTop () {
+              window.scrollTo({ 
+                  top: 0, 
+                  behavior: "smooth" 
+              })
+          },
+          lightsOn () {
+              var self = this
+              setTimeout(function() {
+                  self.scrollToTop ()
+                  self.showLoader = false
+              }, 600)
+          }
+      },
+      mounted () { 
+          window.addEventListener('scroll', this.windowScroller)                
+      },
+      computed: {
+          hideHeader() {
+              return this.windowScrolled > 30
+          },
+          shrinkHeader() {
+              return this.windowScrolled > 30 && this.windowScrollUp
+          },                
+      }
+  })
+</script>  
+  </body>
+</html>

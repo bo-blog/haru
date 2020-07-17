@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/resource/main.css">
+  <link rel="stylesheet" href="/resource/parts.css">
+  <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script>
+  <script src="https://cdn.bootcss.com/reqwest/2.0.5/reqwest.min.js"></script>
+  <title>Test Playground</title>
+</head>
+  <body>
+    <script>
+      var mixins = {}
+    </script>
+    <div id="canvas">
+        <header class="full-wrapper bg space-xs" :class="{'hide-header': hideHeader, 'shrink-header': shrinkHeader, 'blurred': showLoader}">
+  <div class="header-wrap main-wrapper row row-loose">
+    <div class="col-5 text-xl bolder site-name major"><a href="/">Test Playground</a></div>
+      <div class="col-5 menu pointer to-right" @click="showMenu()"><div class="text-l bold inline-block menu-btn" :class="{'menu-open': menuOpen}"><i class="fa fa-chevron-right" aria-hidden="true"></i></div></div>
+      <nav class="nav-body col-8" :class="{'nav-open': menuOpen}">
+        <ul class="h-list to-right sc">
+          <li class="bg-sc-hover space-vh rounded ease" :class="{'nav-active': activeNav=='index' || activeNav=='category' || activeNav=='article'}"><a href="/">Home</a></li>
+          <li class="bg-sc-hover space-vh rounded ease" :class="{'nav-active': activeNav=='tag'}"><a href="/tags/">Tags</a></li>
+          <li class="bg-sc-hover space-vh rounded ease" :class="{'nav-active': activeNav=='archive'}"><a href="/archives/">Archive</a></li>
+        </ul>
+      </nav>
+    </div>
+</header>
+
+        <main class="main-wrapper row row-loose row-top row-wrap space-xs" :class="{blurred: showLoader}">
+          <div class="main-zone-wrapper col-75">
+          
+          
+<section class="zone-main row row-wrap" id="zone-main">
+  
+  <article class="space-s full-wrapper bg-panel rounded article-animate" :style="{'animation-duration': animateArticles}">
+    <div class="title-area bg-panel">
+        <div class="text-xs minor">Jan. 1, 2019</div>  
+        <div class="text-l bold theme-color"><a href="/Music/Japanese/%E9%8A%80%E3%81%AE%E9%BE%8D%E3%81%AE%E8%83%8C%E3%81%AB%E4%B9%97%E3%81%A3%E3%81%A6/">銀の龍の背に乗って</a></div>
+    </div>
+    <div class="body-text between space-vh"> 
+        <p>あの蒼ざめた海の彼方で
+在那苍暗大海彼端</p>
+<p>今まさに誰かが傷（いた）んでいる
+有人现正承受伤痛</p>
+<p>まだ飛べない雛たちみたいに
+如尚未飞起的雏鸟</p>
+<p>僕はこの非力を嘆いている
+我为自身无力叹息</p>
+<p>急げ悲しみ 翼に変われ
+快将悲伤化成羽翼</p>
+<p>急げ傷跡 羅針盤になれ
+快把伤痕当做罗盘</p>
+<p>まだ飛べない雛たちみたいに
+如尚未飞起的雏鸟</p>
+<p>僕はこの非力を嘆いている
+我为自身无力叹息</p>
+<p>夢が迎えに来てくれるまで
+直到梦想成真之前</p>
+<p>震えて待ってるだけだった
+昨日昨日我仍惴惴而待</p>
+<p>明日 僕は龍の足元へ
+明日我将顺龙脚下 </p>
+<p>崖を 登り 呼ぶよ「さあ、行こうぜ」
+登上高崖大喊“来，出发吧”</p>
+<p>銀の龍の背に乗って
+骑在银龙的背上</p>
+<p>届けに行こう 命の砂漠へ
+前往生命的沙漠吧</p>
+
+        <div class="to-right">
+          <div class="button space-vh rounded text-s ease"><a href="/Music/Japanese/%E9%8A%80%E3%81%AE%E9%BE%8D%E3%81%AE%E8%83%8C%E3%81%AB%E4%B9%97%E3%81%A3%E3%81%A6/#more"><i class="fa fa-angle-right" aria-hidden="true"></i> More...</a></div> 
+        </div>
+    </div>
+    <div class="article-info between text-xs sc">
+        <div class="space-vh"><i class="fa fa-folder-o" aria-hidden="true"></i> <a href="/category/Music/Japanese/">Music/Japanese</a></div>
+        
+        <div class="space-vh"><i class="fa fa-tag" aria-hidden="true"></i>
+            <div class="h-list inline-block">
+                <ul>
+                    
+                    <li><a href="/tags/#test">test</a></li>
+                    
+                    <li><a href="/tags/#Japanese">Japanese</a></li>
+                    
+                    <li><a href="/tags/#Pop">Pop</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>    
+  </article>
+  
+  <article class="space-s full-wrapper bg-panel rounded article-animate" :style="{'animation-duration': animateArticles}">
+    <div class="title-area bg-panel">
+        <div class="text-xs minor">Aug. 2, 2018</div>  
+        <div class="text-l bold theme-color"><a href="/Music/English/twinkle-twinkle-little-star/">Twinkle Twinkle Little Star</a></div>
+    </div>
+    <div class="body-text between space-vh"> 
+        <p><img src="https://picsum.photos/400" alt=""></p>
+<p>Twinkle, twinkle, little star
+How I wonder what you are
+Up above the world so high
+Like a diamond in the sky
+Twinkle, twinkle little star
+How I wonder what you are</p>
+<p>When the blazing sun is gone
+When he nothing shines upon
+Then you show your little light
+Twinkle, twinkle, all the night
+Twinkle, twinkle, little star
+How I wonder what you are</p>
+
+    </div>
+    <div class="article-info between text-xs sc">
+        <div class="space-vh"><i class="fa fa-folder-o" aria-hidden="true"></i> <a href="/category/Music/English/">Music/English</a></div>
+        
+        <div class="space-vh"><i class="fa fa-tag" aria-hidden="true"></i>
+            <div class="h-list inline-block">
+                <ul>
+                    
+                    <li><a href="/tags/#English">English</a></li>
+                    
+                    <li><a href="/tags/#%E5%84%BF%E6%AD%8C">儿歌</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>    
+  </article>
+  
+  <article class="space-s full-wrapper bg-panel rounded article-animate" :style="{'animation-duration': animateArticles}">
+    <div class="title-area bg-panel">
+        <div class="text-xs minor">Jul. 21, 2018</div>  
+        <div class="text-l bold theme-color"><a href="/Test/why/">Where have you been?</a></div>
+    </div>
+    <div class="body-text between space-vh"> 
+        <p>Netus justo habitasse justo hac ante sagittis. Habitant mauris, pede suspendisse fames, magnis pulvinar lacinia. Non tellus orci. Feugiat.</p>
+<p>Pulvinar euismod malesuada integer nonummy feugiat in ornare aliquet lacus rutrum quis tortor aenean aptent. Elit aliquet dictum habitant nulla. Natoque dictum primis parturient ullamcorper id. Non blandit. Ridiculus. Natoque. Tellus natoque ultricies rutrum sociis nullam sociosqu risus. Leo vehicula.</p>
+<p>Purus sem, luctus, ut proin euismod erat. Sociis bibendum vel Laoreet cubilia proin, adipiscing diam semper facilisi lorem congue dapibus. Aliquam sollicitudin, elit penatibus gravida tempor platea fermentum. Accumsan auctor conubia pellentesque malesuada convallis sociis purus rhoncus. Suspendisse magnis vehicula interdum.</p>
+
+    </div>
+    <div class="article-info between text-xs sc">
+        <div class="space-vh"><i class="fa fa-folder-o" aria-hidden="true"></i> <a href="/category/Test/">Test</a></div>
+        
+        <div class="space-vh"><i class="fa fa-tag" aria-hidden="true"></i>
+            <div class="h-list inline-block">
+                <ul>
+                    
+                    <li><a href="/tags/#English">English</a></li>
+                    
+                    <li><a href="/tags/#%E4%B8%AD%E6%96%87">中文</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>    
+  </article>
+  
+  <div class="pages space to-center full-wrapper">
+    <div class="full-wrapper h-list">
+      <ul class="text-s sc">
+          
+          <li class="page-prev"><a href="page/3/" @click.prevent="pageSwitch(3)"><i class="fa fa-chevron-left" title="Previous"></i></a></li>
+          
+          <li class="page-actived bold">4</li>
+          
+      </ul>
+    </div>
+  </div>
+</section>
+<div id="more-articles"></div>
+<script>
+    mixins = {
+        data: {
+            articleIdx: 0,
+            articles: '',
+        },        
+        methods: {
+            pageSwitch (pn) {
+                this.showLoader = true
+                var self = this
+                reqwest({
+                    url: '/parts/'+pn+'.html',
+                    type: 'html',
+                    success: function (resp) {                       
+                        self.articleIdx = 0
+                        document.getElementById('zone-main').innerHTML=''   
+                        var com=Vue.extend({
+                            template: '<div>'+resp+'</div>',
+                            data: function(){
+                                return {
+                                    animateArticles: self.animateArticles,
+                                }
+                            },
+                            methods: {
+                                pageSwitch: self.pageSwitch
+                            }
+                        })
+                        var updatedComponent=new com().$mount()                      
+                        document.getElementById('zone-main').appendChild(updatedComponent.$el)
+                        // setTimeout(function() {self.showLoader = false; self.scrollToTop ()}, 800)
+                        self.lightsOn()              
+                    },
+                    error: function () {
+                        self.showLoader = false
+                    }
+                })
+                let urlPattern = '/page/99999/'
+                let url = urlPattern.replace(/99999/, pn)
+                window.history.pushState(null, null, url)
+                return false
+            }
+        },
+        computed: {            
+            animateArticles() {
+                this.articleIdx += 1;
+                return 0.8 * this.articleIdx + 's'
+            }
+        }
+    }
+</script>
+
+          </div>
+          
+          <section class="zone-side col-2 to-left">
+          <aside class="sidebar space-s">
+  <div class="sbar-title bold space-xs"><i class="fa fa-folder" aria-hidden="true"></i> Categories</div>
+  <div class="sbar-content sc text-s space-xs">
+    <div class="v-list">
+      <ul>
+        
+        <li>
+          
+          
+          <a href="/category/About/">About</a> <span class="slimmer minor text-xxs">(4)</span>
+        </li>
+        
+        <li>
+          &nbsp; 
+          <span class="text-xxs" aria-hidden="true"> └ </span>
+          <a href="/category/Music/English/">English</a> <span class="slimmer minor text-xxs">(2)</span>
+        </li>
+        
+        <li>
+          &nbsp; 
+          <span class="text-xxs" aria-hidden="true"> └ </span>
+          <a href="/category/Music/Japanese/">Japanese</a> <span class="slimmer minor text-xxs">(2)</span>
+        </li>
+        
+        <li>
+          &nbsp; 
+          <span class="text-xxs" aria-hidden="true"> └ </span>
+          <a href="/category/Music/%E4%B8%AD%E6%96%87/">中文</a> <span class="slimmer minor text-xxs">(1)</span>
+        </li>
+        
+        <li>
+          
+          
+          <a href="/category/Test/">Test</a> <span class="slimmer minor text-xxs">(3)</span>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+<aside class="sidebar space-s">
+  <div class="sbar-title bold space-xs"><i class="fa fa-tags" aria-hidden="true"></i> Trending</div>
+  <div class="sbar-content sc text-s space-xs">
+    <div class="h-list tag-list text-xs">
+      <ul>
+        
+        <li><a href="/tags/#test">test (8)</a></li>
+        
+        <li><a href="/tags/#English">English (6)</a></li>
+        
+        <li><a href="/tags/#%E4%B8%AD%E6%96%87">中文 (3)</a></li>
+        
+        <li><a href="/tags/#Japanese">Japanese (2)</a></li>
+        
+        <li><a href="/tags/#Pop">Pop (2)</a></li>
+        
+        <li><a href="/tags/#Folk">Folk (2)</a></li>
+        
+        <li><a href="/tags/#Small">Small (1)</a></li>
+        
+        <li><a href="/tags/#Chinese">Chinese (1)</a></li>
+        
+        <li><a href="/tags/#%E5%84%BF%E6%AD%8C">儿歌 (1)</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+<aside class="sidebar space-s">
+  <div class="sbar-title bold space-xs"><i class="fa fa-external-link" aria-hidden="true"></i> Links</div>
+  <div class="sbar-content sc text-s space-xs">
+    <div class="v-list link-list text-xs">
+      <ul>                      
+        
+        <li><a href="https://www.bo-blog.com/bw/" target="_blank">Bo-blog</a></li>
+        
+        <li><a href="https://baidu.com" target="_blank">Baidu</a></li>
+        
+        <li><a href="https://google.com" target="_blank">Google</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+          </section>
+          
+        </main>
+
+        <footer class="main-wrapper" :class="{blurred: showLoader}">
+  <div class="space-s between to-center">
+    <div class="space-xxs to-center">
+      <div class="h-list sc">
+        <ul>
+          
+          <li><a href="http://weibo.com/" target="_blank" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a></li>
+          
+          <li><a href="https://twitter.com/" target="_blank" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+          
+          <li><a href="http://instagram.com/" target="_blank" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+          
+        </ul>
+      </div>
+    </div>
+    <div class="text-xs sc">&copy; Admin 2020.<br>Powered by <a href="/" target="_blank">Unknown Project</a></div>
+  </div>
+</footer>
+
+<div class="loader ease" :class="{'loader-on': showLoader}">
+  <div class="lightbox"></div>
+  <div class="loading">
+    <i class="left"></i>
+    <i class="middle"></i>
+    <i class="right"></i>
+  </div>
+</div>
+
+    </div> 
+    
+  <script>
+  Vue.component ('place-holder', {
+      template: "<div class=\"place-holder\" :style=\"{width: phWidth}\">.</div>",
+      props: ['width'],
+      computed: {
+          phWidth() {
+              return this.width + "%"
+          }
+      }
+  })
+  var app = new Vue({
+      el: "#canvas",
+      mixins: [mixins],
+      data: {
+         menuOpen: false,
+         windowScrolled: false,
+         windowScrollUp: false,
+         showLoader: false,
+         activeNav: 'index',
+      },
+      methods: {
+          showMenu () {
+              this.menuOpen = !this.menuOpen;
+          },
+          windowScroller () {
+              var scrolled = document.documentElement.scrollTop || document.body.scrollTop
+              this.windowScrollUp = scrolled < this.windowScrolled
+              this.windowScrolled = scrolled
+          },
+          scrollToTop () {
+              window.scrollTo({ 
+                  top: 0, 
+                  behavior: "smooth" 
+              })
+          },
+          lightsOn () {
+              var self = this
+              setTimeout(function() {
+                  self.scrollToTop ()
+                  self.showLoader = false
+              }, 600)
+          }
+      },
+      mounted () { 
+          window.addEventListener('scroll', this.windowScroller)                
+      },
+      computed: {
+          hideHeader() {
+              return this.windowScrolled > 30
+          },
+          shrinkHeader() {
+              return this.windowScrolled > 30 && this.windowScrollUp
+          },                
+      }
+  })
+</script>  
+  </body>
+</html>

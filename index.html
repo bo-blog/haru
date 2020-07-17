@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/resource/main.css">
+  <link rel="stylesheet" href="/resource/parts.css">
+  <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script>
+  <script src="https://cdn.bootcss.com/reqwest/2.0.5/reqwest.min.js"></script>
+  <title>Test Playground</title>
+</head>
+  <body>
+    <script>
+      var mixins = {}
+    </script>
+    <div id="canvas">
+        <header class="full-wrapper bg space-xs" :class="{'hide-header': hideHeader, 'shrink-header': shrinkHeader, 'blurred': showLoader}">
+  <div class="header-wrap main-wrapper row row-loose">
+    <div class="col-5 text-xl bolder site-name major"><a href="/">Test Playground</a></div>
+      <div class="col-5 menu pointer to-right" @click="showMenu()"><div class="text-l bold inline-block menu-btn" :class="{'menu-open': menuOpen}"><i class="fa fa-chevron-right" aria-hidden="true"></i></div></div>
+      <nav class="nav-body col-8" :class="{'nav-open': menuOpen}">
+        <ul class="h-list to-right sc">
+          <li class="bg-sc-hover space-vh rounded ease" :class="{'nav-active': activeNav=='index' || activeNav=='category' || activeNav=='article'}"><a href="/">Home</a></li>
+          <li class="bg-sc-hover space-vh rounded ease" :class="{'nav-active': activeNav=='tag'}"><a href="/tags/">Tags</a></li>
+          <li class="bg-sc-hover space-vh rounded ease" :class="{'nav-active': activeNav=='archive'}"><a href="/archives/">Archive</a></li>
+        </ul>
+      </nav>
+    </div>
+</header>
+
+        <main class="main-wrapper row row-loose row-top row-wrap space-xs" :class="{blurred: showLoader}">
+          <div class="main-zone-wrapper col-75">
+          
+          
+<section class="zone-main row row-wrap" id="zone-main">
+  
+  <article class="space-s full-wrapper bg-panel rounded article-animate" :style="{'animation-duration': animateArticles}">
+    <div class="title-area bg-panel">
+        <div class="text-xs minor">Jul. 17, 2020</div>  
+        <div class="text-l bold theme-color"><a href="/About/hello-world/">Welcome to the Playground</a></div>
+    </div>
+    <div class="body-text between space-vh"> 
+        <p>Hello, again.</p>
+<p>This is a place for demonstration purpose only. All contents are for testing.</p>
+<p>Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+<img src="https://picsum.photos/400/300" alt="x"></p>
+
+<ul>
+<li>Lorem ipsum dolor sit amet</li>
+<li>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+<li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+</ul>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head profile=&quot;http://www.w3.org/2005/10/profile&quot;&gt;
+&lt;meta charset=&quot;UTF-8&quot; /&gt;
+&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=Edge&quot; /&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
+</code></pre>
+
+        <div class="to-right">
+          <div class="button space-vh rounded text-s ease"><a href="/About/hello-world/#more"><i class="fa fa-angle-right" aria-hidden="true"></i> More...</a></div> 
+        </div>
+    </div>
+    <div class="article-info between text-xs sc">
+        <div class="space-vh"><i class="fa fa-folder-o" aria-hidden="true"></i> <a href="/category/About/">About</a></div>
+        
+        <div class="space-vh"><i class="fa fa-tag" aria-hidden="true"></i>
+            <div class="h-list inline-block">
+                <ul>
+                    
+                    <li><a href="/tags/#test">test</a></li>
+                    
+                    <li><a href="/tags/#English">English</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>    
+  </article>
+  
+  <article class="space-s full-wrapper bg-panel rounded article-animate" :style="{'animation-duration': animateArticles}">
+    <div class="title-area bg-panel">
+        <div class="text-xs minor">Feb. 11, 2020</div>  
+        <div class="text-l bold theme-color"><a href="/Test/why%E7%9A%84%E5%89%AF%E6%9C%AC/">829 Nice Nice Nice</a></div>
+    </div>
+    <div class="body-text between space-vh"> 
+        <p>Netus justLibero at magnis ante faucibus. Purus blandit nunc porta praesent. Gravida mi et facilisis quam consequat ante. Dictum placerat risus malesuada Pede duis hymenaeos sagittis. Vitae magna integer quis mattis etiam proin curae; porttitor Faucibus. Nonummy.</p>
+<p>Convallis aliquet ipsum viverra aenean cras nisi ultrices porttitor eu senectus lorem duis nonummy litora blandit donec orci. Netus. Ullamcorper.</p>
+<p>Elit elit platea duis conubia etiam magnis nibh nisi, ligula praesent natoque iaculis elit conubia suspendisse, mus per velit. Dolor tincidunt faucibus morbi dignissim sem mi nulla. Est morbi interdum, pulvinar cras vitae mauris ultricies molestie bibendum morbi. Aliquet sodales vestibulum netus fames hac.</p>
+
+    </div>
+    <div class="article-info between text-xs sc">
+        <div class="space-vh"><i class="fa fa-folder-o" aria-hidden="true"></i> <a href="/category/Test/">Test</a></div>
+        
+        <div class="space-vh"><i class="fa fa-tag" aria-hidden="true"></i>
+            <div class="h-list inline-block">
+                <ul>
+                    
+                    <li><a href="/tags/#English">English</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>    
+  </article>
+  
+  <article class="space-s full-wrapper bg-panel rounded article-animate" :style="{'animation-duration': animateArticles}">
+    <div class="title-area bg-panel">
+        <div class="text-xs minor">Jan. 11, 2020</div>  
+        <div class="text-l bold theme-color"><a href="/About/abc/">Test Goes On</a></div>
+    </div>
+    <div class="body-text between space-vh"> 
+        <h3 id="how-is-it">How is it</h3>
+<p>Id porta nibh venenatis cras sed felis eget velit aliquet. Lorem donec massa sapien faucibus et molestie. Lorem sed risus ultricies tristique nulla. Non curabitur gravida arcu ac tortor dignissim convallis. Arcu dui vivamus arcu felis bibendum ut tristique et. Etiam non quam lacus suspendisse. Ac tincidunt vitae semper quis lectus nulla at volutpat diam. Metus dictum at tempor commodo. Morbi leo urna molestie <em>at elementum eu facilisis</em>. Risus in hendrerit gravida rutrum. Massa enim nec dui nunc mattis enim ut. </p>
+<h3 id="p-s-">P.S.</h3>
+<p>Tempus imperdiet nulla malesuada pellentesque. Pretium quam vulputate dignissim suspendisse. Amet tellus cras adipiscing enim.</p>
+<p><img src="https://picsum.photos/600" alt="Placeholder"></p>
+<h3 id="ways">Ways</h3>
+<p>Magna fermentum iaculis eu non diam. Venenatis cras sed felis eget velit aliquet sagittis. Vitae et leo duis ut diam. Nam at lectus urna duis convallis convallis tellus id interdum. Enim diam vulputate ut pharetra sit amet aliquam id diam. Praesent semper feugiat nibh sed pulvinar proin. Odio ut sem nulla pharetra diam sit.</p>
+
+    </div>
+    <div class="article-info between text-xs sc">
+        <div class="space-vh"><i class="fa fa-folder-o" aria-hidden="true"></i> <a href="/category/About/">About</a></div>
+        
+        <div class="space-vh"><i class="fa fa-tag" aria-hidden="true"></i>
+            <div class="h-list inline-block">
+                <ul>
+                    
+                    <li><a href="/tags/#test">test</a></li>
+                    
+                    <li><a href="/tags/#English">English</a></li>
+                    
+                    <li><a href="/tags/#Small">Small</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>    
+  </article>
+  
+  <div class="pages space to-center full-wrapper">
+    <div class="full-wrapper h-list">
+      <ul class="text-s sc">
+          
+          <li class="page-actived bold">1</li>
+          
+          <li class="page-next"><a href="page/2/" @click.prevent="pageSwitch(2)"><i class="fa fa-chevron-right" title="Next"></i></a></li>
+          
+      </ul>
+    </div>
+  </div>
+</section>
+<div id="more-articles"></div>
+<script>
+    mixins = {
+        data: {
+            articleIdx: 0,
+            articles: '',
+        },        
+        methods: {
+            pageSwitch (pn) {
+                this.showLoader = true
+                var self = this
+                reqwest({
+                    url: '/parts/'+pn+'.html',
+                    type: 'html',
+                    success: function (resp) {                       
+                        self.articleIdx = 0
+                        document.getElementById('zone-main').innerHTML=''   
+                        var com=Vue.extend({
+                            template: '<div>'+resp+'</div>',
+                            data: function(){
+                                return {
+                                    animateArticles: self.animateArticles,
+                                }
+                            },
+                            methods: {
+                                pageSwitch: self.pageSwitch
+                            }
+                        })
+                        var updatedComponent=new com().$mount()                      
+                        document.getElementById('zone-main').appendChild(updatedComponent.$el)
+                        // setTimeout(function() {self.showLoader = false; self.scrollToTop ()}, 800)
+                        self.lightsOn()              
+                    },
+                    error: function () {
+                        self.showLoader = false
+                    }
+                })
+                let urlPattern = '/page/99999/'
+                let url = urlPattern.replace(/99999/, pn)
+                window.history.pushState(null, null, url)
+                return false
+            }
+        },
+        computed: {            
+            animateArticles() {
+                this.articleIdx += 1;
+                return 0.8 * this.articleIdx + 's'
+            }
+        }
+    }
+</script>
+
+          </div>
+          
+          <section class="zone-side col-2 to-left">
+          <aside class="sidebar space-s">
+  <div class="sbar-title bold space-xs"><i class="fa fa-folder" aria-hidden="true"></i> Categories</div>
+  <div class="sbar-content sc text-s space-xs">
+    <div class="v-list">
+      <ul>
+        
+        <li>
+          
+          
+          <a href="/category/About/">About</a> <span class="slimmer minor text-xxs">(4)</span>
+        </li>
+        
+        <li>
+          &nbsp; 
+          <span class="text-xxs" aria-hidden="true"> └ </span>
+          <a href="/category/Music/English/">English</a> <span class="slimmer minor text-xxs">(2)</span>
+        </li>
+        
+        <li>
+          &nbsp; 
+          <span class="text-xxs" aria-hidden="true"> └ </span>
+          <a href="/category/Music/Japanese/">Japanese</a> <span class="slimmer minor text-xxs">(2)</span>
+        </li>
+        
+        <li>
+          &nbsp; 
+          <span class="text-xxs" aria-hidden="true"> └ </span>
+          <a href="/category/Music/%E4%B8%AD%E6%96%87/">中文</a> <span class="slimmer minor text-xxs">(1)</span>
+        </li>
+        
+        <li>
+          
+          
+          <a href="/category/Test/">Test</a> <span class="slimmer minor text-xxs">(3)</span>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+<aside class="sidebar space-s">
+  <div class="sbar-title bold space-xs"><i class="fa fa-tags" aria-hidden="true"></i> Trending</div>
+  <div class="sbar-content sc text-s space-xs">
+    <div class="h-list tag-list text-xs">
+      <ul>
+        
+        <li><a href="/tags/#test">test (8)</a></li>
+        
+        <li><a href="/tags/#English">English (6)</a></li>
+        
+        <li><a href="/tags/#%E4%B8%AD%E6%96%87">中文 (3)</a></li>
+        
+        <li><a href="/tags/#Japanese">Japanese (2)</a></li>
+        
+        <li><a href="/tags/#Pop">Pop (2)</a></li>
+        
+        <li><a href="/tags/#Folk">Folk (2)</a></li>
+        
+        <li><a href="/tags/#Small">Small (1)</a></li>
+        
+        <li><a href="/tags/#Chinese">Chinese (1)</a></li>
+        
+        <li><a href="/tags/#%E5%84%BF%E6%AD%8C">儿歌 (1)</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+<aside class="sidebar space-s">
+  <div class="sbar-title bold space-xs"><i class="fa fa-external-link" aria-hidden="true"></i> Links</div>
+  <div class="sbar-content sc text-s space-xs">
+    <div class="v-list link-list text-xs">
+      <ul>                      
+        
+        <li><a href="https://www.bo-blog.com/bw/" target="_blank">Bo-blog</a></li>
+        
+        <li><a href="https://baidu.com" target="_blank">Baidu</a></li>
+        
+        <li><a href="https://google.com" target="_blank">Google</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+          </section>
+          
+        </main>
+
+        <footer class="main-wrapper" :class="{blurred: showLoader}">
+  <div class="space-s between to-center">
+    <div class="space-xxs to-center">
+      <div class="h-list sc">
+        <ul>
+          
+          <li><a href="http://weibo.com/" target="_blank" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a></li>
+          
+          <li><a href="https://twitter.com/" target="_blank" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+          
+          <li><a href="http://instagram.com/" target="_blank" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+          
+        </ul>
+      </div>
+    </div>
+    <div class="text-xs sc">&copy; Admin 2020.<br>Powered by <a href="/" target="_blank">Unknown Project</a></div>
+  </div>
+</footer>
+
+<div class="loader ease" :class="{'loader-on': showLoader}">
+  <div class="lightbox"></div>
+  <div class="loading">
+    <i class="left"></i>
+    <i class="middle"></i>
+    <i class="right"></i>
+  </div>
+</div>
+
+    </div> 
+    
+  <script>
+  Vue.component ('place-holder', {
+      template: "<div class=\"place-holder\" :style=\"{width: phWidth}\">.</div>",
+      props: ['width'],
+      computed: {
+          phWidth() {
+              return this.width + "%"
+          }
+      }
+  })
+  var app = new Vue({
+      el: "#canvas",
+      mixins: [mixins],
+      data: {
+         menuOpen: false,
+         windowScrolled: false,
+         windowScrollUp: false,
+         showLoader: false,
+         activeNav: 'index',
+      },
+      methods: {
+          showMenu () {
+              this.menuOpen = !this.menuOpen;
+          },
+          windowScroller () {
+              var scrolled = document.documentElement.scrollTop || document.body.scrollTop
+              this.windowScrollUp = scrolled < this.windowScrolled
+              this.windowScrolled = scrolled
+          },
+          scrollToTop () {
+              window.scrollTo({ 
+                  top: 0, 
+                  behavior: "smooth" 
+              })
+          },
+          lightsOn () {
+              var self = this
+              setTimeout(function() {
+                  self.scrollToTop ()
+                  self.showLoader = false
+              }, 600)
+          }
+      },
+      mounted () { 
+          window.addEventListener('scroll', this.windowScroller)                
+      },
+      computed: {
+          hideHeader() {
+              return this.windowScrolled > 30
+          },
+          shrinkHeader() {
+              return this.windowScrolled > 30 && this.windowScrollUp
+          },                
+      }
+  })
+</script>  
+  </body>
+</html>

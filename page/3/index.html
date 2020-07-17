@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/resource/main.css">
+  <link rel="stylesheet" href="/resource/parts.css">
+  <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script>
+  <script src="https://cdn.bootcss.com/reqwest/2.0.5/reqwest.min.js"></script>
+  <title>Test Playground</title>
+</head>
+  <body>
+    <script>
+      var mixins = {}
+    </script>
+    <div id="canvas">
+        <header class="full-wrapper bg space-xs" :class="{'hide-header': hideHeader, 'shrink-header': shrinkHeader, 'blurred': showLoader}">
+  <div class="header-wrap main-wrapper row row-loose">
+    <div class="col-5 text-xl bolder site-name major"><a href="/">Test Playground</a></div>
+      <div class="col-5 menu pointer to-right" @click="showMenu()"><div class="text-l bold inline-block menu-btn" :class="{'menu-open': menuOpen}"><i class="fa fa-chevron-right" aria-hidden="true"></i></div></div>
+      <nav class="nav-body col-8" :class="{'nav-open': menuOpen}">
+        <ul class="h-list to-right sc">
+          <li class="bg-sc-hover space-vh rounded ease" :class="{'nav-active': activeNav=='index' || activeNav=='category' || activeNav=='article'}"><a href="/">Home</a></li>
+          <li class="bg-sc-hover space-vh rounded ease" :class="{'nav-active': activeNav=='tag'}"><a href="/tags/">Tags</a></li>
+          <li class="bg-sc-hover space-vh rounded ease" :class="{'nav-active': activeNav=='archive'}"><a href="/archives/">Archive</a></li>
+        </ul>
+      </nav>
+    </div>
+</header>
+
+        <main class="main-wrapper row row-loose row-top row-wrap space-xs" :class="{blurred: showLoader}">
+          <div class="main-zone-wrapper col-75">
+          
+          
+<section class="zone-main row row-wrap" id="zone-main">
+  
+  <article class="space-s full-wrapper bg-panel rounded article-animate" :style="{'animation-duration': animateArticles}">
+    <div class="title-area bg-panel">
+        <div class="text-xs minor">Aug. 2, 2019</div>  
+        <div class="text-l bold theme-color"><a href="/Music/%E4%B8%AD%E6%96%87/pop-chinese/">中文歌曲</a></div>
+    </div>
+    <div class="body-text between space-vh"> 
+        <p>在20世纪70年代“改革、开放”后，中国的音乐创作迎来了空前繁荣，随着人民社会文化生活的变化，“流行音乐”形式得到一定复苏，并对中国自己的“通俗歌曲”兴起形成了刺激；20世纪80年代前后，一些电影中出现虽然是抒情歌曲、但也具有通俗音乐风格的插曲，成为了后来的中国电影、电视音乐创作效仿的格局和模式。 </p>
+<p>该首歌是为1986版电视剧《西游记》创作的音乐；1981年底，中央领导同志鉴于转播的日本电视连续剧收视率远超过其它剧目，以及从日本购进的电视片《西游记》收到数百观众写信抗议这些现象，决定开始尝试拍摄自己的名著改编剧，中央电视台副台长让当时在从事舞台转播工作的杨洁组织班底，着手进行《西游记》的拍摄。在1981年至1982年，中央电视台筹备拍摄的电视剧《西游记》由杨洁导演建组，寻找投资阶段已有各路作曲家纷至沓来，杨洁不论名气大小与否，请每人各作一段曲子；大约在1983年冬季，许镜清作为第十位候选者，开始进入该剧的音乐创作；当时这首歌准备用作插曲、原是一首充满男性气质的歌曲，许镜清一天坐在公交车上看到车窗外雪花纷纷扬扬、行人匆匆赶路，脑子里突然冒出了旋律，于是立即下车用借的铅笔把“一番番春秋冬夏……”这句旋律记在了烟卷盒上；回去之后他伏在办公桌用大约两个小时从第一句“你挑着担，我牵着马”起补全了整首歌，只在两天后改动了两个音符。  因为当时音乐创作的主流是需要民族化，许镜清在编曲中刻意地加入了三弦伴奏。</p>
+
+    </div>
+    <div class="article-info between text-xs sc">
+        <div class="space-vh"><i class="fa fa-folder-o" aria-hidden="true"></i> <a href="/category/Music/%E4%B8%AD%E6%96%87/">Music/中文</a></div>
+        
+        <div class="space-vh"><i class="fa fa-tag" aria-hidden="true"></i>
+            <div class="h-list inline-block">
+                <ul>
+                    
+                    <li><a href="/tags/#test">test</a></li>
+                    
+                    <li><a href="/tags/#Folk">Folk</a></li>
+                    
+                    <li><a href="/tags/#%E4%B8%AD%E6%96%87">中文</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>    
+  </article>
+  
+  <article class="space-s full-wrapper bg-panel rounded article-animate" :style="{'animation-duration': animateArticles}">
+    <div class="title-area bg-panel">
+        <div class="text-xs minor">Jan. 20, 2019</div>  
+        <div class="text-l bold theme-color"><a href="/Test/my/">Can&#39;t Foget It</a></div>
+    </div>
+    <div class="body-text between space-vh"> 
+        <p>Purus sem, luctus, ut proin euismod erat. Sociis bibendum vel Laoreet cubilia proin, adipiscing diam semper facilisi lorem congue dapibus. Aliquam sollicitudin, elit penatibus gravida tempor platea fermentum. Accumsan auctor conubia pellentesque malesuada convallis sociis purus rhoncus. Suspendisse magnis vehicula interdum.</p>
+
+    </div>
+    <div class="article-info between text-xs sc">
+        <div class="space-vh"><i class="fa fa-folder-o" aria-hidden="true"></i> <a href="/category/Test/">Test</a></div>
+        
+    </div>    
+  </article>
+  
+  <article class="space-s full-wrapper bg-panel rounded article-animate" :style="{'animation-duration': animateArticles}">
+    <div class="title-area bg-panel">
+        <div class="text-xs minor">Jan. 3, 2019</div>  
+        <div class="text-l bold theme-color"><a href="/Music/English/auld/">Auld Lang Syne</a></div>
+    </div>
+    <div class="body-text between space-vh"> 
+        <p><em>Auld Lang Syne</em>, Scottish song with words attributed to the national poet of Scotland, Robert Burns. The composer is not definitely known. In English-speaking countries, the first verse and chorus are now closely associated with the New Year festival.</p>
+<p>Scots Version
+Should auld acquaintance be forgot,
+And never brought to mind?
+Should auld acquaintance be forgot,
+And auld lang syne?</p>
+<p>(Chorus)
+For auld lang syne, my jo,
+For auld lang syne,
+We’ll tak a cup o’ kindness yet,
+For auld lang syne.</p>
+<p>And surely ye’ll be your pint-stowp!
+And surely I’ll be mine!
+And we’ll tak a cup o’ kindness yet,
+For auld lang syne.</p>
+<p>We twa hae run about the braes
+And pu’d the gowans fine;
+But we’ve wander’d mony a weary foot
+Sin auld lang syne.</p>
+<p>We twa hae paidl’d i’ the burn,
+Frae mornin’ sun till dine;
+But seas between us braid hae roar’d
+Sin auld lang syne.</p>
+<p>And there’s a hand, my trusty fiere!
+And gie’s a hand o’ thine!
+And we’ll tak a right guid willy waught,
+For auld lang syne.</p>
+<p>English Version
+Should old acquaintance be forgot,
+And never brought to mind?
+Should old acquaintance be forgot,
+And old lang syne?</p>
+<p>(Chorus)
+For auld lang syne, my dear,
+For auld lang syne,
+We’ll take a cup of kindness yet,
+For auld lang syne.</p>
+<p>And surely you’ll buy your pint cup!
+And surely I’ll buy mine!
+And we’ll take a cup o’ kindness yet,
+For auld lang syne.</p>
+
+        <div class="to-right">
+          <div class="button space-vh rounded text-s ease"><a href="/Music/English/auld/#more"><i class="fa fa-angle-right" aria-hidden="true"></i> More...</a></div> 
+        </div>
+    </div>
+    <div class="article-info between text-xs sc">
+        <div class="space-vh"><i class="fa fa-folder-o" aria-hidden="true"></i> <a href="/category/Music/English/">Music/English</a></div>
+        
+        <div class="space-vh"><i class="fa fa-tag" aria-hidden="true"></i>
+            <div class="h-list inline-block">
+                <ul>
+                    
+                    <li><a href="/tags/#test">test</a></li>
+                    
+                    <li><a href="/tags/#English">English</a></li>
+                    
+                    <li><a href="/tags/#Folk">Folk</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>    
+  </article>
+  
+  <div class="pages space to-center full-wrapper">
+    <div class="full-wrapper h-list">
+      <ul class="text-s sc">
+          
+          <li class="page-prev"><a href="page/2/" @click.prevent="pageSwitch(2)"><i class="fa fa-chevron-left" title="Previous"></i></a></li>
+          
+          <li class="page-actived bold">3</li>
+          
+          <li class="page-next"><a href="page/4/" @click.prevent="pageSwitch(4)"><i class="fa fa-chevron-right" title="Next"></i></a></li>
+          
+      </ul>
+    </div>
+  </div>
+</section>
+<div id="more-articles"></div>
+<script>
+    mixins = {
+        data: {
+            articleIdx: 0,
+            articles: '',
+        },        
+        methods: {
+            pageSwitch (pn) {
+                this.showLoader = true
+                var self = this
+                reqwest({
+                    url: '/parts/'+pn+'.html',
+                    type: 'html',
+                    success: function (resp) {                       
+                        self.articleIdx = 0
+                        document.getElementById('zone-main').innerHTML=''   
+                        var com=Vue.extend({
+                            template: '<div>'+resp+'</div>',
+                            data: function(){
+                                return {
+                                    animateArticles: self.animateArticles,
+                                }
+                            },
+                            methods: {
+                                pageSwitch: self.pageSwitch
+                            }
+                        })
+                        var updatedComponent=new com().$mount()                      
+                        document.getElementById('zone-main').appendChild(updatedComponent.$el)
+                        // setTimeout(function() {self.showLoader = false; self.scrollToTop ()}, 800)
+                        self.lightsOn()              
+                    },
+                    error: function () {
+                        self.showLoader = false
+                    }
+                })
+                let urlPattern = '/page/99999/'
+                let url = urlPattern.replace(/99999/, pn)
+                window.history.pushState(null, null, url)
+                return false
+            }
+        },
+        computed: {            
+            animateArticles() {
+                this.articleIdx += 1;
+                return 0.8 * this.articleIdx + 's'
+            }
+        }
+    }
+</script>
+
+          </div>
+          
+          <section class="zone-side col-2 to-left">
+          <aside class="sidebar space-s">
+  <div class="sbar-title bold space-xs"><i class="fa fa-folder" aria-hidden="true"></i> Categories</div>
+  <div class="sbar-content sc text-s space-xs">
+    <div class="v-list">
+      <ul>
+        
+        <li>
+          
+          
+          <a href="/category/About/">About</a> <span class="slimmer minor text-xxs">(4)</span>
+        </li>
+        
+        <li>
+          &nbsp; 
+          <span class="text-xxs" aria-hidden="true"> └ </span>
+          <a href="/category/Music/English/">English</a> <span class="slimmer minor text-xxs">(2)</span>
+        </li>
+        
+        <li>
+          &nbsp; 
+          <span class="text-xxs" aria-hidden="true"> └ </span>
+          <a href="/category/Music/Japanese/">Japanese</a> <span class="slimmer minor text-xxs">(2)</span>
+        </li>
+        
+        <li>
+          &nbsp; 
+          <span class="text-xxs" aria-hidden="true"> └ </span>
+          <a href="/category/Music/%E4%B8%AD%E6%96%87/">中文</a> <span class="slimmer minor text-xxs">(1)</span>
+        </li>
+        
+        <li>
+          
+          
+          <a href="/category/Test/">Test</a> <span class="slimmer minor text-xxs">(3)</span>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+<aside class="sidebar space-s">
+  <div class="sbar-title bold space-xs"><i class="fa fa-tags" aria-hidden="true"></i> Trending</div>
+  <div class="sbar-content sc text-s space-xs">
+    <div class="h-list tag-list text-xs">
+      <ul>
+        
+        <li><a href="/tags/#test">test (8)</a></li>
+        
+        <li><a href="/tags/#English">English (6)</a></li>
+        
+        <li><a href="/tags/#%E4%B8%AD%E6%96%87">中文 (3)</a></li>
+        
+        <li><a href="/tags/#Japanese">Japanese (2)</a></li>
+        
+        <li><a href="/tags/#Pop">Pop (2)</a></li>
+        
+        <li><a href="/tags/#Folk">Folk (2)</a></li>
+        
+        <li><a href="/tags/#Small">Small (1)</a></li>
+        
+        <li><a href="/tags/#Chinese">Chinese (1)</a></li>
+        
+        <li><a href="/tags/#%E5%84%BF%E6%AD%8C">儿歌 (1)</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+<aside class="sidebar space-s">
+  <div class="sbar-title bold space-xs"><i class="fa fa-external-link" aria-hidden="true"></i> Links</div>
+  <div class="sbar-content sc text-s space-xs">
+    <div class="v-list link-list text-xs">
+      <ul>                      
+        
+        <li><a href="https://www.bo-blog.com/bw/" target="_blank">Bo-blog</a></li>
+        
+        <li><a href="https://baidu.com" target="_blank">Baidu</a></li>
+        
+        <li><a href="https://google.com" target="_blank">Google</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+          </section>
+          
+        </main>
+
+        <footer class="main-wrapper" :class="{blurred: showLoader}">
+  <div class="space-s between to-center">
+    <div class="space-xxs to-center">
+      <div class="h-list sc">
+        <ul>
+          
+          <li><a href="http://weibo.com/" target="_blank" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a></li>
+          
+          <li><a href="https://twitter.com/" target="_blank" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+          
+          <li><a href="http://instagram.com/" target="_blank" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+          
+        </ul>
+      </div>
+    </div>
+    <div class="text-xs sc">&copy; Admin 2020.<br>Powered by <a href="/" target="_blank">Unknown Project</a></div>
+  </div>
+</footer>
+
+<div class="loader ease" :class="{'loader-on': showLoader}">
+  <div class="lightbox"></div>
+  <div class="loading">
+    <i class="left"></i>
+    <i class="middle"></i>
+    <i class="right"></i>
+  </div>
+</div>
+
+    </div> 
+    
+  <script>
+  Vue.component ('place-holder', {
+      template: "<div class=\"place-holder\" :style=\"{width: phWidth}\">.</div>",
+      props: ['width'],
+      computed: {
+          phWidth() {
+              return this.width + "%"
+          }
+      }
+  })
+  var app = new Vue({
+      el: "#canvas",
+      mixins: [mixins],
+      data: {
+         menuOpen: false,
+         windowScrolled: false,
+         windowScrollUp: false,
+         showLoader: false,
+         activeNav: 'index',
+      },
+      methods: {
+          showMenu () {
+              this.menuOpen = !this.menuOpen;
+          },
+          windowScroller () {
+              var scrolled = document.documentElement.scrollTop || document.body.scrollTop
+              this.windowScrollUp = scrolled < this.windowScrolled
+              this.windowScrolled = scrolled
+          },
+          scrollToTop () {
+              window.scrollTo({ 
+                  top: 0, 
+                  behavior: "smooth" 
+              })
+          },
+          lightsOn () {
+              var self = this
+              setTimeout(function() {
+                  self.scrollToTop ()
+                  self.showLoader = false
+              }, 600)
+          }
+      },
+      mounted () { 
+          window.addEventListener('scroll', this.windowScroller)                
+      },
+      computed: {
+          hideHeader() {
+              return this.windowScrolled > 30
+          },
+          shrinkHeader() {
+              return this.windowScrolled > 30 && this.windowScrollUp
+          },                
+      }
+  })
+</script>  
+  </body>
+</html>
