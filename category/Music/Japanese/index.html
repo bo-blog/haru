@@ -37,12 +37,18 @@
         <div class="body-text space-vh col-2 v-list text-s" id="category-navbar">
             <div id="indicator-bar" class="ease" :style="{top: indicatorTop}"> </div>
             <ul class="category-selector">
-                <li :class="{'category-indicator': currentCategory == '__archive'}" @click="categorySwitch('__archive')" >All Articles</li>
+                <li :class="{'category-indicator': currentCategory == '_archive'}" @click="categorySwitch('_archive')" >All Articles</li>
                 
                 <li :class="{'category-indicator': currentCategory == 'About'}" @click="categorySwitch('About')" class="ease">
                 
                 
                 About
+                </li>
+                
+                <li :class="{'category-indicator': currentCategory == 'Music'}" @click="categorySwitch('Music')" class="ease">
+                
+                
+                Music
                 </li>
                 
                 <li :class="{'category-indicator': currentCategory == 'Music/English'}" @click="categorySwitch('Music/English')" class="ease">
@@ -93,7 +99,7 @@
 <script>
     mixins = {
         data: {
-            currentCategory: "" ? "__archive" : "Music/Japanese",
+            currentCategory: "" ? "_archive" : "Music/Japanese",
             indicatorTop: 0,
             miniload: false
         },

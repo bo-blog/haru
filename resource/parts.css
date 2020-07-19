@@ -36,6 +36,9 @@ header {
 }
 
 @media screen and (max-width: 850px){
+    .site-name {
+        width: 80%;
+    }
     .nav-body {
         position: fixed;
         opacity: 0;
