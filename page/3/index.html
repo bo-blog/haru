@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="/resource/parts.css">
   <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script>
   <script src="https://cdn.bootcss.com/reqwest/2.0.5/reqwest.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+  <link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.1/styles/monokai-sublime.min.css" rel="stylesheet">
   <title>Test Playground</title>
 </head>
   <body>
@@ -165,7 +167,6 @@
                         })
                         var updatedComponent=new com().$mount()                      
                         document.getElementById('zone-main').appendChild(updatedComponent.$el)
-                        // setTimeout(function() {self.showLoader = false; self.scrollToTop ()}, 800)
                         self.lightsOn()              
                     },
                     error: function () {
@@ -243,23 +244,23 @@
     <div class="h-list tag-list text-xs">
       <ul>
         
-        <li><a href="/tags/#test">test (8)</a></li>
+        <li><a href="/tags/#test">test (17)</a></li>
         
-        <li><a href="/tags/#English">English (6)</a></li>
+        <li><a href="/tags/#English">English (13)</a></li>
         
-        <li><a href="/tags/#%E4%B8%AD%E6%96%87">中文 (3)</a></li>
+        <li><a href="/tags/#%E4%B8%AD%E6%96%87">中文 (6)</a></li>
         
-        <li><a href="/tags/#Japanese">Japanese (2)</a></li>
+        <li><a href="/tags/#Japanese">Japanese (4)</a></li>
         
-        <li><a href="/tags/#Pop">Pop (2)</a></li>
+        <li><a href="/tags/#Pop">Pop (4)</a></li>
         
-        <li><a href="/tags/#Folk">Folk (2)</a></li>
+        <li><a href="/tags/#Folk">Folk (4)</a></li>
         
-        <li><a href="/tags/#Small">Small (1)</a></li>
+        <li><a href="/tags/#Small">Small (3)</a></li>
         
-        <li><a href="/tags/#Chinese">Chinese (1)</a></li>
+        <li><a href="/tags/#Chinese">Chinese (2)</a></li>
         
-        <li><a href="/tags/#%E5%84%BF%E6%AD%8C">儿歌 (1)</a></li>
+        <li><a href="/tags/#%E5%84%BF%E6%AD%8C">儿歌 (2)</a></li>
         
       </ul>
     </div>
@@ -288,19 +289,19 @@
         <footer class="main-wrapper" :class="{blurred: showLoader}">
   <div class="space-s between to-center">
     <div class="space-xxs to-center">
-      <div class="h-list sc">
+      <div class="h-list sc text-l">
         <ul>
           
-          <li><a href="http://weibo.com/" target="_blank" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a></li>
+          <li class="contact-item"><a href="http://weibo.com/" target="_blank" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a></li>
           
-          <li><a href="https://twitter.com/" target="_blank" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+          <li class="contact-item"><a href="https://twitter.com/" target="_blank" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
           
-          <li><a href="http://instagram.com/" target="_blank" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+          <li class="contact-item"><a href="http://instagram.com/" target="_blank" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
           
         </ul>
       </div>
     </div>
-    <div class="text-xs sc">&copy; Admin 2020.<br>Powered by <a href="/" target="_blank">Unknown Project</a></div>
+    <div class="text-xs sc">&copy; Admin 2020.<br>Powered by <a href="/" target="_blank">Project Haru</a></div>
   </div>
 </footer>
 
@@ -312,7 +313,6 @@
     <i class="right"></i>
   </div>
 </div>
-
     </div> 
     
   <script>
@@ -371,5 +371,12 @@
       }
   })
 </script>  
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      document.querySelectorAll('pre code').forEach((block) => {
+        hljs.highlightBlock(block);
+      });
+    });
+  </script>
   </body>
 </html>

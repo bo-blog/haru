@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="/resource/parts.css">
   <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script>
   <script src="https://cdn.bootcss.com/reqwest/2.0.5/reqwest.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+  <link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.1/styles/monokai-sublime.min.css" rel="stylesheet">
   <title>中文 | Test Playground</title>
 </head>
   <body>
@@ -37,7 +39,7 @@
         <div class="body-text space-vh col-2 v-list text-s" id="category-navbar">
             <div id="indicator-bar" class="ease" :style="{top: indicatorTop}"> </div>
             <ul class="category-selector">
-                <li :class="{'category-indicator': currentCategory == '_archive'}" @click="categorySwitch('_archive')" >All Articles</li>
+                <li :class="{'category-indicator': currentCategory == 'archive'}" @click="categorySwitch('archive')" >All Articles</li>
                 
                 <li :class="{'category-indicator': currentCategory == 'About'}" @click="categorySwitch('About')" class="ease">
                 
@@ -95,7 +97,7 @@
 <script>
     mixins = {
         data: {
-            currentCategory: "" ? "_archive" : "Music/中文",
+            currentCategory: "" ? "archive" : "Music/中文",
             indicatorTop: 0,
             miniload: false
         },
@@ -121,13 +123,14 @@
                 })
                 
                 let urls
-                if (cate != "_archive") {
+                if (cate != "archive") {
                     let urlPattern = '/category/{category}/'
                     urls = urlPattern.replace(/{category}/, cate)
-                    
+                    this.activeNav = "category"
                 }
                 else {
                     urls = '/archives/'
+                    this.activeNav = "archive"
                 }
                 window.history.pushState(null, null, urls)
                 
@@ -152,19 +155,19 @@
         <footer class="main-wrapper" :class="{blurred: showLoader}">
   <div class="space-s between to-center">
     <div class="space-xxs to-center">
-      <div class="h-list sc">
+      <div class="h-list sc text-l">
         <ul>
           
-          <li><a href="http://weibo.com/" target="_blank" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a></li>
+          <li class="contact-item"><a href="http://weibo.com/" target="_blank" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a></li>
           
-          <li><a href="https://twitter.com/" target="_blank" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+          <li class="contact-item"><a href="https://twitter.com/" target="_blank" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
           
-          <li><a href="http://instagram.com/" target="_blank" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+          <li class="contact-item"><a href="http://instagram.com/" target="_blank" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
           
         </ul>
       </div>
     </div>
-    <div class="text-xs sc">&copy; Admin 2020.<br>Powered by <a href="/" target="_blank">Unknown Project</a></div>
+    <div class="text-xs sc">&copy; Admin 2020.<br>Powered by <a href="/" target="_blank">Project Haru</a></div>
   </div>
 </footer>
 
@@ -176,7 +179,6 @@
     <i class="right"></i>
   </div>
 </div>
-
     </div> 
     
   <script>
@@ -235,5 +237,12 @@
       }
   })
 </script>  
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      document.querySelectorAll('pre code').forEach((block) => {
+        hljs.highlightBlock(block);
+      });
+    });
+  </script>
   </body>
 </html>
