@@ -10,16 +10,16 @@
   <script src="https://cdn.bootcss.com/reqwest/2.0.5/reqwest.min.js"></script>
   <script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
   <link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.1/styles/monokai-sublime.min.css" rel="stylesheet">
-  <title>Test Playground</title>
+  <title>bW Archived</title>
 </head>
   <body>
     <script>
-      var mixins = {}
+      var mixins = []
     </script>
     <div id="canvas">
         <header class="full-wrapper bg space-xs" :class="{'hide-header': hideHeader, 'shrink-header': shrinkHeader, 'blurred': showLoader}">
   <div class="header-wrap main-wrapper row row-loose">
-    <div class="col-5 text-xl bolder site-name major"><a href="/">Test Playground</a></div>
+    <div class="col-5 text-xl bolder site-name major"><a href="/">bW Archived</a></div>
       <div class="col-5 menu pointer to-right" @click="showMenu()"><div class="text-l bold inline-block menu-btn" :class="{'menu-open': menuOpen}"><i class="fa fa-chevron-right" aria-hidden="true"></i></div></div>
       <nav class="nav-body col-8" :class="{'nav-open': menuOpen}">
         <ul class="h-list to-right sc">
@@ -39,26 +39,64 @@
   
   <article class="space-s full-wrapper bg-panel rounded article-animate" :style="{'animation-duration': animateArticles}">
     <div class="title-area bg-panel">
-        <div class="text-xs minor">Aug. 2, 2019</div>  
-        <div class="text-l bold theme-color"><a href="/Music/%E4%B8%AD%E6%96%87/pop-chinese/">中文歌曲</a></div>
+        <div class="text-xs minor">Jun. 15, 2017</div>  
+        <div class="text-l bold theme-color"><a href="/%E9%9A%8F%E7%AC%94/fix-a-bug-in-mysql/">运行在MySQL下的一个bug会导致无法正常添加评论</a></div>
     </div>
     <div class="body-text between space-vh"> 
-        <p>在20世纪70年代“改革、开放”后，中国的音乐创作迎来了空前繁荣，随着人民社会文化生活的变化，“流行音乐”形式得到一定复苏，并对中国自己的“通俗歌曲”兴起形成了刺激；20世纪80年代前后，一些电影中出现虽然是抒情歌曲、但也具有通俗音乐风格的插曲，成为了后来的中国电影、电视音乐创作效仿的格局和模式。 </p>
-<p>该首歌是为1986版电视剧《西游记》创作的音乐；1981年底，中央领导同志鉴于转播的日本电视连续剧收视率远超过其它剧目，以及从日本购进的电视片《西游记》收到数百观众写信抗议这些现象，决定开始尝试拍摄自己的名著改编剧，中央电视台副台长让当时在从事舞台转播工作的杨洁组织班底，着手进行《西游记》的拍摄。在1981年至1982年，中央电视台筹备拍摄的电视剧《西游记》由杨洁导演建组，寻找投资阶段已有各路作曲家纷至沓来，杨洁不论名气大小与否，请每人各作一段曲子；大约在1983年冬季，许镜清作为第十位候选者，开始进入该剧的音乐创作；当时这首歌准备用作插曲、原是一首充满男性气质的歌曲，许镜清一天坐在公交车上看到车窗外雪花纷纷扬扬、行人匆匆赶路，脑子里突然冒出了旋律，于是立即下车用借的铅笔把“一番番春秋冬夏……”这句旋律记在了烟卷盒上；回去之后他伏在办公桌用大约两个小时从第一句“你挑着担，我牵着马”起补全了整首歌，只在两天后改动了两个音符。  因为当时音乐创作的主流是需要民族化，许镜清在编曲中刻意地加入了三弦伴奏。</p>
+        <p>由于自第一版起就存在的一个bug，内置评论在MySQL下无法正常添加并显示。当然之前大部分同学都使用多说的服务，所以问题直到1.4.0的内置评论开启后才显露。（感谢 <a href="http://www.qq977.com/blog/">山隈</a>）</p>
+<h2 id="toc-%E4%BF%AE%E5%A4%8D%E6%96%B9%E6%B3%95%EF%BC%9A">修复方法：</h2><p><strong>如果你已经导入过多说</strong>，那么数据库里很可能只导入了一条评论，且文章的评论数已被更新。<br>请先在phpMyAdmin等工具中，管理所在的database，执行：</p>
+
+<pre><code>UPDATE `articles` SET `aComments`=0;
+TRUNCATE `comments`
+</code></pre>
+<p>如从未导入过，请直接执行接下来的操作：</p>
+
+<pre><code>ALTER TABLE `comments` CHANGE `comID` `comID` INT(11) NOT NULL AUTO_INCREMENT
+</code></pre>
+<p>修复完毕，评论功能应该可以正常使用和显示。视情况您可能需要重新导入多说的评论。</p>
+<p>安装文件中的这一bug将在下次更新时修复。</p>
 
     </div>
     <div class="article-info between text-xs sc">
-        <div class="space-vh"><i class="fa fa-folder-o" aria-hidden="true"></i> <a href="/category/Music/%E4%B8%AD%E6%96%87/">中文</a></div>
+        <div class="space-vh"><i class="fa fa-folder-o" aria-hidden="true"></i> <a href="/category/%E9%9A%8F%E7%AC%94/">随笔</a></div>
+        
+    </div>    
+  </article>
+  
+  <article class="space-s full-wrapper bg-panel rounded article-animate" :style="{'animation-duration': animateArticles}">
+    <div class="title-area bg-panel">
+        <div class="text-xs minor">Jun. 10, 2017</div>  
+        <div class="text-l bold theme-color"><a href="/%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/release-note-1400/">1.4.0已发布暨多说评论导入工具</a></div>
+    </div>
+    <div class="body-text between space-vh"> 
+        <h2 id="toc-1.4.0%E5%B7%B2%E7%BB%8F%E6%8E%A8%E9%80%81%E5%88%B0GitHub">1.4.0已经推送到GitHub</h2>
+<ul>
+<li>新增：内置评论回归。取消已停运的多说服务设置。</li>
+<li>改进：完善了翻页，现在可以快速定位到特定分页。（默认主题）</li>
+<li>新增：可选择常用搜索引擎作为站内搜索使用。（默认主题）</li>
+<li>改进：检测到新版时可以将升级包下载下来以便手动更新。</li>
+</ul>
+<h2 id="toc-%E6%8F%90%E7%A4%BA">提示</h2><p>启用内置评论后，数据库写入次数增多，如果启用了内置评论，建议关闭前台缓存以减少评论导致的数据库操作增多。 </p>
+<h2 id="toc-%E5%A4%9A%E8%AF%B4%E8%AF%84%E8%AE%BA%E5%AF%BC%E5%85%A5%E5%B7%A5%E5%85%B7">多说评论导入工具</h2>
+<ul>
+<li>请下载文末的多说评论导入工具（import.php），将其上传至 bW 所在目录（提示：和 read.php同级目录）。</li>
+<li>然后在浏览器内打开 <a href="http://xxxx/import.php">http://xxxx/import.php</a> ，xxx为bW的访问URL。</li>
+<li>使用文本编辑软件打开多说导出的 json 文件 export.json，复制所有内容，粘贴到 import.php 的输入框内，并点击执行。</li>
+<li>等待导入完成。<strong>务必在导入完成后删除 import.php！</strong></li>
+</ul>
+<h2 id="toc-%E4%B8%8B%E8%BD%BD%E5%AF%BC%E5%85%A5%E5%B7%A5%E5%85%B7">下载导入工具</h2><p><a href="http://xiaofengtest.qiniudn.com/storage/import.php">点此处下载</a></p>
+
+    </div>
+    <div class="article-info between text-xs sc">
+        <div class="space-vh"><i class="fa fa-folder-o" aria-hidden="true"></i> <a href="/category/%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/">快速上手</a></div>
         
         <div class="space-vh"><i class="fa fa-tag" aria-hidden="true"></i>
             <div class="h-list inline-block">
                 <ul>
                     
-                    <li><a href="/tags/#test">test</a></li>
+                    <li><a href="/tags/#%E7%A8%8B%E5%BA%8F%E5%8F%91%E5%B8%83">程序发布</a></li>
                     
-                    <li><a href="/tags/#Folk">Folk</a></li>
-                    
-                    <li><a href="/tags/#%E4%B8%AD%E6%96%87">中文</a></li>
+                    <li><a href="/tags/#%E5%A4%9A%E8%AF%B4">多说</a></li>
                     
                 </ul>
             </div>
@@ -69,52 +107,30 @@
   
   <article class="space-s full-wrapper bg-panel rounded article-animate" :style="{'animation-duration': animateArticles}">
     <div class="title-area bg-panel">
-        <div class="text-xs minor">Jan. 20, 2019</div>  
-        <div class="text-l bold theme-color"><a href="/Test/my/">Can&#39;t Foget It</a></div>
+        <div class="text-xs minor">Apr. 2, 2017</div>  
+        <div class="text-l bold theme-color"><a href="/%E9%9A%8F%E7%AC%94/zai-jian-duo-shuo/">再见，多说</a></div>
     </div>
     <div class="body-text between space-vh"> 
-        <p>Purus sem, luctus, ut proin euismod erat. Sociis bibendum vel Laoreet cubilia proin, adipiscing diam semper facilisi lorem congue dapibus. Aliquam sollicitudin, elit penatibus gravida tempor platea fermentum. Accumsan auctor conubia pellentesque malesuada convallis sociis purus rhoncus. Suspendisse magnis vehicula interdum.</p>
+        <h2 id="toc-2017%E5%B9%B44%E6%9C%8822%E6%97%A5%E6%9B%B4%E6%96%B0">2017年4月22日更新</h2><p>由于多说的轰然倒塌，原生评论“被迫”回归了，而且将比移除前更完善…… 而且，完整导入多说所有评论的小工具也做好了。</p>
+<p>可在本篇底下测试新的评论功能。等再完善一下后台评论管理就push。</p>
+<p>导出多说数据，请立即登录多说，然后直接进入 <a href="http://XXX.duoshuo.com/admin/tools/export/">http://XXX.duoshuo.com/admin/tools/export/</a> (XXX是您的多说短域名）。按照下图，选择两个复选框，可导出一个zip文件备用。</p>
+<p><img src="http://xiaofengtest.qiniudn.com/storage/f4905b2c_Jietu20170422-233428.jpg?imageView2/2/w/800" alt=""></p>
+<p>再次提醒，6月1日之前务必导出完毕。</p>
+<p>《多说》官方发布公告，该服务将于6月1日关闭。</p>
+<p>很不幸，这也是bW内置的第三方评论服务。原本的设想是通过社会化评论系统，让评论功能的实现变得简单、省心。多说是一个相当友好、易用且定制度高的服务，此番关闭，着实可惜。</p>
+<p>但作为多说的用户，我仍然在无奈之余表示理解。做点惠及大众的实事不易，面对越来越严苛的环境和资金压力，坚持更不容易。</p>
+<p>多说关闭后的评论解决方案肯定会有。在此提醒各位朋友，及时到多说的后台完整导出评论。待到下一版发布时，才能通过导入多说备份找回曾经的评论。</p>
+<p>春暖花开，万物复苏。唯愿一切都会更好。</p>
 
     </div>
     <div class="article-info between text-xs sc">
-        <div class="space-vh"><i class="fa fa-folder-o" aria-hidden="true"></i> <a href="/category/Test/">Test</a></div>
-        
-    </div>    
-  </article>
-  
-  <article class="space-s full-wrapper bg-panel rounded article-animate" :style="{'animation-duration': animateArticles}">
-    <div class="title-area bg-panel">
-        <div class="text-xs minor">Jan. 3, 2019</div>  
-        <div class="text-l bold theme-color"><a href="/Music/English/auld/">Auld Lang Syne</a></div>
-    </div>
-    <div class="body-text between space-vh"> 
-        <p><em>Auld Lang Syne</em>, Scottish song with words attributed to the national poet of Scotland, Robert Burns. The composer is not definitely known. In English-speaking countries, the first verse and chorus are now closely associated with the New Year festival.</p>
-<p>Scots Version<br>Should auld acquaintance be forgot,<br>And never brought to mind?<br>Should auld acquaintance be forgot,<br>And auld lang syne?</p>
-<p>(Chorus)<br>For auld lang syne, my jo,<br>For auld lang syne,<br>We’ll tak a cup o’ kindness yet,<br>For auld lang syne.</p>
-<p>And surely ye’ll be your pint-stowp!<br>And surely I’ll be mine!<br>And we’ll tak a cup o’ kindness yet,<br>For auld lang syne.</p>
-<p>We twa hae run about the braes<br>And pu’d the gowans fine;<br>But we’ve wander’d mony a weary foot<br>Sin auld lang syne.</p>
-<p>We twa hae paidl’d i’ the burn,<br>Frae mornin’ sun till dine;<br>But seas between us braid hae roar’d<br>Sin auld lang syne.</p>
-<p>And there’s a hand, my trusty fiere!<br>And gie’s a hand o’ thine!<br>And we’ll tak a right guid willy waught,<br>For auld lang syne.</p>
-<p>English Version<br>Should old acquaintance be forgot,<br>And never brought to mind?<br>Should old acquaintance be forgot,<br>And old lang syne?</p>
-<p>(Chorus)<br>For auld lang syne, my dear,<br>For auld lang syne,<br>We’ll take a cup of kindness yet,<br>For auld lang syne.</p>
-<p>And surely you’ll buy your pint cup!<br>And surely I’ll buy mine!<br>And we’ll take a cup o’ kindness yet,<br>For auld lang syne.</p>
-
-        <div class="to-right">
-          <div class="button space-vh rounded text-s ease"><a href="/Music/English/auld/#more"><i class="fa fa-angle-right" aria-hidden="true"></i> More...</a></div> 
-        </div>
-    </div>
-    <div class="article-info between text-xs sc">
-        <div class="space-vh"><i class="fa fa-folder-o" aria-hidden="true"></i> <a href="/category/Music/English/">English</a></div>
+        <div class="space-vh"><i class="fa fa-folder-o" aria-hidden="true"></i> <a href="/category/%E9%9A%8F%E7%AC%94/">随笔</a></div>
         
         <div class="space-vh"><i class="fa fa-tag" aria-hidden="true"></i>
             <div class="h-list inline-block">
                 <ul>
                     
-                    <li><a href="/tags/#test">test</a></li>
-                    
-                    <li><a href="/tags/#English">English</a></li>
-                    
-                    <li><a href="/tags/#Folk">Folk</a></li>
+                    <li><a href="/tags/#%E5%A4%9A%E8%AF%B4">多说</a></li>
                     
                 </ul>
             </div>
@@ -139,7 +155,7 @@
 </section>
 <div id="more-articles"></div>
 <script>
-    mixins = {
+    mixins.push({
         data: {
             articleIdx: 0,
             articles: '',
@@ -186,7 +202,7 @@
                 return 0.8 * this.articleIdx + 's'
             }
         }
-    }
+    })
 </script>
 
           </div>
@@ -201,37 +217,19 @@
         <li>
           
           
-          <a href="/category/About/">About</a> <span class="slimmer minor text-xxs">(4)</span>
+          <a href="/category/%E4%B8%BB%E9%A2%98/">主题</a> <span class="slimmer minor text-xxs">(4)</span>
         </li>
         
         <li>
           
           
-          <a href="/category/Music/">Music</a> <span class="slimmer minor text-xxs">(5)</span>
-        </li>
-        
-        <li>
-          &nbsp; 
-          <span class="text-xxs" aria-hidden="true"> └ </span>
-          <a href="/category/Music/English/">English</a> <span class="slimmer minor text-xxs">(2)</span>
-        </li>
-        
-        <li>
-          &nbsp; 
-          <span class="text-xxs" aria-hidden="true"> └ </span>
-          <a href="/category/Music/Japanese/">Japanese</a> <span class="slimmer minor text-xxs">(2)</span>
-        </li>
-        
-        <li>
-          &nbsp; 
-          <span class="text-xxs" aria-hidden="true"> └ </span>
-          <a href="/category/Music/%E4%B8%AD%E6%96%87/">中文</a> <span class="slimmer minor text-xxs">(1)</span>
+          <a href="/category/%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/">快速上手</a> <span class="slimmer minor text-xxs">(4)</span>
         </li>
         
         <li>
           
           
-          <a href="/category/Test/">Test</a> <span class="slimmer minor text-xxs">(3)</span>
+          <a href="/category/%E9%9A%8F%E7%AC%94/">随笔</a> <span class="slimmer minor text-xxs">(10)</span>
         </li>
         
       </ul>
@@ -244,23 +242,25 @@
     <div class="h-list tag-list text-xs">
       <ul>
         
-        <li><a href="/tags/#test">test (17)</a></li>
+        <li><a href="/tags/#%E7%A8%8B%E5%BA%8F%E5%8F%91%E5%B8%83">程序发布 (3)</a></li>
         
-        <li><a href="/tags/#English">English (13)</a></li>
+        <li><a href="/tags/#%E4%B8%BB%E9%A2%98%E5%8F%91%E5%B8%83">主题发布 (3)</a></li>
         
-        <li><a href="/tags/#%E4%B8%AD%E6%96%87">中文 (6)</a></li>
+        <li><a href="/tags/#%E5%A4%9A%E8%AF%B4">多说 (2)</a></li>
         
-        <li><a href="/tags/#Japanese">Japanese (4)</a></li>
+        <li><a href="/tags/#%E6%96%87%E6%A1%A3">文档 (2)</a></li>
         
-        <li><a href="/tags/#Pop">Pop (4)</a></li>
+        <li><a href="/tags/#%E4%B8%83%E7%89%9B">七牛 (1)</a></li>
         
-        <li><a href="/tags/#Folk">Folk (4)</a></li>
+        <li><a href="/tags/#%E6%95%99%E7%A8%8B">教程 (1)</a></li>
         
-        <li><a href="/tags/#Small">Small (3)</a></li>
+        <li><a href="/tags/#https">https (1)</a></li>
         
-        <li><a href="/tags/#Chinese">Chinese (2)</a></li>
+        <li><a href="/tags/#%E7%BD%91%E6%98%93%E5%8D%9A%E5%AE%A2">网易博客 (1)</a></li>
         
-        <li><a href="/tags/#%E5%84%BF%E6%AD%8C">儿歌 (2)</a></li>
+        <li><a href="/tags/#%E7%BD%91%E9%A1%B5">网页 (1)</a></li>
+        
+        <li><a href="/tags/#safari">safari (1)</a></li>
         
       </ul>
     </div>
@@ -272,7 +272,7 @@
     <div class="v-list link-list text-xs">
       <ul>                      
         
-        <li><a href="https://www.bo-blog.com/bw/" target="_blank">Bo-blog</a></li>
+        <li><a href="https://www.bo-blog.com/" target="_blank">Bo-blog</a></li>
         
         <li><a href="https://baidu.com" target="_blank">Baidu</a></li>
         
@@ -301,7 +301,7 @@
         </ul>
       </div>
     </div>
-    <div class="text-xs sc">&copy; Admin 2020.<br>Powered by <a href="/" target="_blank">Project Haru</a></div>
+    <div class="text-xs sc">&copy; Bo-blog 2020.<br>Powered by <a href="/" target="_blank">Project Haru</a></div>
   </div>
 </footer>
 
@@ -327,7 +327,7 @@
   })
   var app = new Vue({
       el: "#canvas",
-      mixins: [mixins],
+      mixins: mixins,
       data: {
          menuOpen: false,
          windowScrolled: false,
@@ -359,7 +359,13 @@
           }
       },
       mounted () { 
-          window.addEventListener('scroll', this.windowScroller)                
+          window.addEventListener('scroll', this.windowScroller) 
+          if (location.hash && location.hash!=="#") {
+            window.setTimeout(function(){
+                let dest = location.hash.substring(1)
+                document.getElementById(dest).scrollIntoView()                
+            }, 500)  
+        }
       },
       computed: {
           hideHeader() {

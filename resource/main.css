@@ -119,6 +119,9 @@ a {
 .pointer {
     cursor: pointer;
 }
+.forbidden {
+    cursor: not-allowed;
+}
 
 
 /* Font Size */

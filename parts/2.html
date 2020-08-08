@@ -2,27 +2,44 @@
   
   <article class="space-s full-wrapper bg-panel rounded article-animate" :style="{'animation-duration': animateArticles}">
     <div class="title-area bg-panel">
-        <div class="text-xs minor">Dec. 12, 2019</div>  
-        <div class="text-l bold theme-color"><a href="/About/chinese/">Chinese Test</a></div>
+        <div class="text-xs minor">Aug. 25, 2018</div>  
+        <div class="text-l bold theme-color"><a href="/%E9%9A%8F%E7%AC%94/now-https/">我们切换到了https</a></div>
     </div>
     <div class="body-text between space-vh"> 
-        <p>《西游记》是中国古代第一部浪漫主义章回体长篇神魔小说。现存明刊百回本《西游记》均无作者署名。清代学者吴玉搢等首先提出《西游记》作者是明代吴承恩。</p>
-<p>全书主要描写了孙悟空出世及大闹天宫后，遇见了唐僧、猪八戒、沙僧和白龙马，西行取经，一路上历经艰险、降妖伏魔，经历了九九八十一难，终于到达西天见到如来佛祖，最终五圣成真的故事。该小说以“唐僧取经”这一历史事件为蓝本，通过作者的艺术加工，深刻地描绘了明代社会现实。</p>
-<p>《西游记》是中国神魔小说的经典之作，达到了古代长篇浪漫主义小说的巅峰，与《三国演义》《水浒传》《红楼梦》并称为中国古典四大名著。《西游记》自问世以来在民间广为流传，各式各样的版本层出不穷，明代刊本有六种，清代刊本、抄本也有七种，典籍所记已佚版本十三种。鸦片战争以后，大量中国古典文学作品被译为西文，《西游记》渐渐传入欧美，被译为英、法、德、意、西、手语、世（世界语）、斯（斯瓦西里语）、俄、捷、罗、波、日、朝、越等语言。</p>
+        <p>其实，早该如此了。</p>
+<p>自Chrome 68对所有http网站报不安全开始，https就已经逐渐成为主流。今天，本站正式做了https交割。</p>
+<p><img src="https://i.loli.net/2018/08/25/5b8105e4ef594.jpg" alt=""></p>
+<p>要将您的bW博客切换到https下，请手动修改网站路径，位于 conf/info.php，通过查找关键词“siteURL”找到</p>
+
+<pre><code>&#39;siteURL&#39; =&gt; &#39;http://xxxx.xxxx.xxx/xxx&#39;,
+</code></pre>
+<p>更改为</p>
+
+<pre><code>&#39;siteURL&#39; =&gt; &#39;https://xxxx.xxxx.xxx/xxx&#39;,
+</code></pre>
+<p><strong>有一些后遗症：</strong></p>
+
+<ul>
+<li>切换前的文章里，管理员在评论时写入的头像地址仍为http协议，因此页面打开仍然会报不安全。</li>
+<li>如果以前的文章里用到七牛等云存储，引用地址不更新的话，页面打开也会报不安全。</li>
+<li>云存储如果未启用https支持，则新的文章中插入的图片也会导致页面不安全。</li>
+</ul>
+<p><strong>更多参考：</strong></p>
+
+<ul>
+<li><a href="https://my.oschina.net/u/998792/blog/856292">使用 Let&#39;s Encrypt（Certbot） 配置 HTTPS</a></li>
+<li><a href="https://lai.yuweining.cn/pic.html">免费稳定好用的永久图片外链图床</a></li>
+</ul>
 
     </div>
     <div class="article-info between text-xs sc">
-        <div class="space-vh"><i class="fa fa-folder-o" aria-hidden="true"></i> <a href="/category/About/">About</a></div>
+        <div class="space-vh"><i class="fa fa-folder-o" aria-hidden="true"></i> <a href="/category/%E9%9A%8F%E7%AC%94/">随笔</a></div>
         
         <div class="space-vh"><i class="fa fa-tag" aria-hidden="true"></i>
             <div class="h-list inline-block">
                 <ul>
                     
-                    <li><a href="/tags/#test">test</a></li>
-                    
-                    <li><a href="/tags/#Chinese">Chinese</a></li>
-                    
-                    <li><a href="/tags/#%E4%B8%AD%E6%96%87">中文</a></li>
+                    <li><a href="/tags/#https">https</a></li>
                     
                 </ul>
             </div>
@@ -33,24 +50,25 @@
   
   <article class="space-s full-wrapper bg-panel rounded article-animate" :style="{'animation-duration': animateArticles}">
     <div class="title-area bg-panel">
-        <div class="text-xs minor">Dec. 2, 2019</div>  
-        <div class="text-l bold theme-color"><a href="/About/a12/">About Node.js®</a></div>
+        <div class="text-xs minor">Aug. 24, 2018</div>  
+        <div class="text-l bold theme-color"><a href="/%E9%9A%8F%E7%AC%94/release-1600/">1.6.0来了</a></div>
     </div>
     <div class="body-text between space-vh"> 
-        <p>As an asynchronous event-driven JavaScript runtime, Node.js is designed to build scalable network applications. In the following &quot;hello world&quot; example, many connections can be handled concurrently. Upon each connection, the callback is fired, but if there is no work to be done, Node.js will sleep. </p>
+        <p>快一年了，终于更新了一版，主要是小修小补，添加了评论邮件通知方便不常打理网站的懒人。另外对移动界面做了些修正，使之更简洁。</p>
+<p>惊闻网易博客停运，可能越来越多的人不需要blog了，包括我自己，也把码字的时间给了另一个私人微博性质的项目。</p>
+<p>且行，且珍惜。</p>
 
-        <div class="to-right">
-          <div class="button space-vh rounded text-s ease"><a href="/About/a12/#more"><i class="fa fa-angle-right" aria-hidden="true"></i> More...</a></div> 
-        </div>
     </div>
     <div class="article-info between text-xs sc">
-        <div class="space-vh"><i class="fa fa-folder-o" aria-hidden="true"></i> <a href="/category/About/">About</a></div>
+        <div class="space-vh"><i class="fa fa-folder-o" aria-hidden="true"></i> <a href="/category/%E9%9A%8F%E7%AC%94/">随笔</a></div>
         
         <div class="space-vh"><i class="fa fa-tag" aria-hidden="true"></i>
             <div class="h-list inline-block">
                 <ul>
                     
-                    <li><a href="/tags/#test">test</a></li>
+                    <li><a href="/tags/#%E7%BD%91%E6%98%93%E5%8D%9A%E5%AE%A2">网易博客</a></li>
+                    
+                    <li><a href="/tags/#%E7%A8%8B%E5%BA%8F%E5%8F%91%E5%B8%83">程序发布</a></li>
                     
                 </ul>
             </div>
@@ -61,33 +79,16 @@
   
   <article class="space-s full-wrapper bg-panel rounded article-animate" :style="{'animation-duration': animateArticles}">
     <div class="title-area bg-panel">
-        <div class="text-xs minor">Nov. 1, 2019</div>  
-        <div class="text-l bold theme-color"><a href="/Music/Japanese/arigato/">ありがとう</a></div>
+        <div class="text-xs minor">Aug. 20, 2017</div>  
+        <div class="text-l bold theme-color"><a href="/%E4%B8%BB%E9%A2%98/theme-updates/">Light、Minimalism、Mint三个主题更新适配到1.4.0</a></div>
     </div>
     <div class="body-text between space-vh"> 
-        <p>なまぬるい風に吹かれながら　東京の空眺めてたら<br>被苦涩的风吹着 眺望着东京的天空<br>遠くで暮らしてるあなたの事をふと思い出す　元気ですか?<br>突然想到了在远方生活着的你 还过得好吗？<br>夢を追いかけて離れた街　見送ってくれたあの春の日<br>为了追逐梦想离开了这条街道 在那个春天目送着你<br>頼りなかった僕に「後悔だけはしないで」と<br>对着尚未成熟的我说着“不要后悔就好”<br>優しい言葉　ぬくもり　その笑顔<br>那温柔的话语和温暖的笑脸<br>ずっと覚えてるよ　そして忘れないよ</p>
-<p><img src="https://picsum.photos/600" alt="ph"></p>
+        <p>三个主题更新到1.4.0，适配原生评论功能，Minimalism和Mint主题支持搜索框。</p>
+<p><a href="http://xiaofengtest.qiniudn.com/storage/49ffd34c_bw_theme_packages.zip">点这里一次性下载</a></p>
 
-        <div class="to-right">
-          <div class="button space-vh rounded text-s ease"><a href="/Music/Japanese/arigato/#more"><i class="fa fa-angle-right" aria-hidden="true"></i> More...</a></div> 
-        </div>
     </div>
     <div class="article-info between text-xs sc">
-        <div class="space-vh"><i class="fa fa-folder-o" aria-hidden="true"></i> <a href="/category/Music/Japanese/">Japanese</a></div>
-        
-        <div class="space-vh"><i class="fa fa-tag" aria-hidden="true"></i>
-            <div class="h-list inline-block">
-                <ul>
-                    
-                    <li><a href="/tags/#test">test</a></li>
-                    
-                    <li><a href="/tags/#Japanese">Japanese</a></li>
-                    
-                    <li><a href="/tags/#Pop">Pop</a></li>
-                    
-                </ul>
-            </div>
-        </div>
+        <div class="space-vh"><i class="fa fa-folder-o" aria-hidden="true"></i> <a href="/category/%E4%B8%BB%E9%A2%98/">主题</a></div>
         
     </div>    
   </article>

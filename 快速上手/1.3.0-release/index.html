@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/resource/main.css">
+  <link rel="stylesheet" href="/resource/parts.css">
+  <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script>
+  <script src="https://cdn.bootcss.com/reqwest/2.0.5/reqwest.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+  <link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.1/styles/monokai-sublime.min.css" rel="stylesheet">
+  <title>1.3.0发布 | bW Archived</title>
+</head>
+  <body>
+    <script>
+      var mixins = []
+    </script>
+    <div id="canvas">
+        <header class="full-wrapper bg space-xs" :class="{'hide-header': hideHeader, 'shrink-header': shrinkHeader, 'blurred': showLoader}">
+  <div class="header-wrap main-wrapper row row-loose">
+    <div class="col-5 text-xl bolder site-name major"><a href="/">bW Archived</a></div>
+      <div class="col-5 menu pointer to-right" @click="showMenu()"><div class="text-l bold inline-block menu-btn" :class="{'menu-open': menuOpen}"><i class="fa fa-chevron-right" aria-hidden="true"></i></div></div>
+      <nav class="nav-body col-8" :class="{'nav-open': menuOpen}">
+        <ul class="h-list to-right sc">
+          <li class="bg-sc-hover space-vh rounded ease" :class="{'nav-active': activeNav=='index' || activeNav=='category' || activeNav=='article'}"><a href="/">Home</a></li>
+          <li class="bg-sc-hover space-vh rounded ease" :class="{'nav-active': activeNav=='tag'}"><a href="/tags/">Tags</a></li>
+          <li class="bg-sc-hover space-vh rounded ease" :class="{'nav-active': activeNav=='archive'}"><a href="/archives/">Archive</a></li>
+        </ul>
+      </nav>
+    </div>
+</header>
+
+        <main class="main-wrapper row row-loose row-top row-wrap space-xs" :class="{blurred: showLoader}">
+          <div class="main-zone-wrapper full-wrapper">
+          
+<section class="zone-main" id="zone-main">
+    <article class="space-s bg-panel rounded article-animate" style="animation-duration: 0.8s">
+      <div class="title-area">
+        <div class="text-xs minor">Dec. 18, 2016</div>  
+        <div class="text-l bold theme-color">1.3.0发布</div>
+      </div>
+      <div class="article-wrapper row row-loose row-top">
+        <div>
+            <div class="body-text between space-vh">
+                <p>1.3.0于今天发布。此版带来这样一些新特性。</p>
+<h2 id="toc-%E6%AF%8F%E5%88%86%E9%92%9F%E8%87%AA%E5%8A%A8%E4%BF%9D%E5%AD%98%E8%8D%89%E7%A8%BF">每分钟自动保存草稿</h2><p>启用此功能可以避免意外退出丢失正在编辑的内容。建议写长文时打开。</p>
+<h2 id="toc-%E5%8F%AF%E4%BB%A5%E7%A6%81%E7%94%A8%E5%86%85%E9%83%A8%E8%AE%A1%E6%95%B0%E5%8A%9F%E8%83%BD%E5%87%8F%E5%B0%91%E6%95%B0%E6%8D%AE%E5%BA%93%E5%86%99%E5%85%A5%E6%93%8D%E4%BD%9C">可以禁用内部计数功能减少数据库写入操作</h2><p>当并发访问较高时，建议打开此项。在该模式下将牺牲一些统计功能，带来的是性能的提升。在不进行后台操作的情况下，用户的访问几乎不执行任何数据库写入操作。</p>
+<h2 id="toc-%E5%85%B6%E4%BB%96%E4%B8%80%E4%BA%9B%E5%B0%8F%E7%9A%84%E6%94%B9%E8%BF%9B">其他一些小的改进</h2>
+<ul>
+<li>在输入Tag时，使用中文逗号也能完成添加，不用频繁切换输入法了。</li>
+<li>在iOS系统下的字体显示问题得到了调整。</li>
+<li>微调了默认主题，改进了logo的显示方式和移动版的下拉菜单。</li>
+</ul>
+<p>Enjoy.</p>
+<p><img src="https://www.bo-blog.com/bw/storage/07742dde_2635-photography_landscape_wallpaper.jpg" alt=""></p>
+
+            </div>
+            <div class="article-info between text-xs sc">
+                <div class="space-vh"><i class="fa fa-folder-o" aria-hidden="true"></i> <a href="/category/%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/">快速上手</a></div>
+                
+                <div class="space-vh"><i class="fa fa-tag" aria-hidden="true"></i>
+                    <div class="h-list inline-block">
+                        <ul>
+                            
+                            <li><a href="/tags/#%E7%A8%8B%E5%BA%8F%E5%8F%91%E5%B8%83">程序发布</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="article-toc space-vh text-s col-3">
+            <div class="bold"><i class="fa fa-bookmark" aria-hidden="true"></i> Table of Contents</div>
+            <div class="v-list" id="article-toc"><ul data-base-level="2"><li data-relative-level="2"><a href="#toc-%E6%AF%8F%E5%88%86%E9%92%9F%E8%87%AA%E5%8A%A8%E4%BF%9D%E5%AD%98%E8%8D%89%E7%A8%BF">每分钟自动保存草稿</a></li><li data-relative-level="2"><a href="#toc-%E5%8F%AF%E4%BB%A5%E7%A6%81%E7%94%A8%E5%86%85%E9%83%A8%E8%AE%A1%E6%95%B0%E5%8A%9F%E8%83%BD%E5%87%8F%E5%B0%91%E6%95%B0%E6%8D%AE%E5%BA%93%E5%86%99%E5%85%A5%E6%93%8D%E4%BD%9C">可以禁用内部计数功能减少数据库写入操作</a></li><li data-relative-level="2"><a href="#toc-%E5%85%B6%E4%BB%96%E4%B8%80%E4%BA%9B%E5%B0%8F%E7%9A%84%E6%94%B9%E8%BF%9B">其他一些小的改进</a></li></ul></div>
+        </div>
+        
+      </div>
+    </article>
+
+    <div class="space-xs between bg">
+    <div class="row row-loose">
+        <div class="to-left col-5"><span class="theme-color bold"><i class="fa fa-comment-o" aria-hidden="true"></i> Comments</span></div>
+        <div class="to-right col-5">
+            <div class="button space-vh rounded text-s ease" v-if="!openForm"><span class="pointer" @click="openCommentForm"><i class="fa fa-plus" aria-hidden="true"></i> Write</span></div>
+        </div>
+    </div>
+
+    <div v-if="miniLoader" class="com-wrapper row row-left row-top space-s rounded">
+        <div class="com-avatar">
+            <div class="com-initial" style="background: var(--minor-color); opacity: 0.5;">&nbsp;</div>
+        </div>
+        <div class="com-body text-xs col-9">
+            <div class="com-title">
+                <place-holder width="20"></place-holder>
+                <place-holder width="90"></place-holder>
+            </div>
+        </div>
+    </div>
+
+    <div class="com-form ease" :class="{'com-form-open': openForm}">
+        <input type="text" placeholder="Name" @focus="requestSiteKey" v-model="user" :class="{'com-error': errorUser}"> *<br>
+        <span class="com-error-msg-off ease text-xs" :class="{'com-error-msg-on': errorUser}">Name must be at least 2 characters long.</span>
+        <input type="email" placeholder="Email" @focus="requestSiteKey" v-model="email" :class="{'com-error': errorEmail}"> *<br>
+        <span class="com-error-msg-off ease text-xs" :class="{'com-error-msg-on': errorEmail}">Email must be a commonly valid one.</span>
+        <input type="url" placeholder="Website" @focus="requestSiteKey" v-model="url"><br>
+        <textarea @focus="requestSiteKey" v-model="content" :class="{'com-error': errorContent}"></textarea> <span style="vertical-align: top;">*</span>
+        <span class="com-error-msg-off ease text-xs" :class="{'com-error-msg-on': errorContent}">Content must be at least 8 characters long.</span>
+        <span class="com-error-msg-off ease text-xs" :class="{'com-error-msg-on': errorReturn}" v-html="errorMessage"></span>
+    </div>
+    <div id="submit" class="button space-vh rounded text-s ease" v-if="openForm && !lockSubmit"><span class="pointer" @click="createComment"><i class="fa fa-plus" aria-hidden="true"></i> Submit</span></div>
+    <div id="submit" class="button space-vh rounded text-s ease" v-if="lockSubmit"><span class="forbidden"><i class="fa fa-spin fa-circle-o-notch" aria-hidden="true"></i> Processing</span></div>    
+
+    <div v-if="noComments" class="space-xl to-center com-wrapper">
+        No comment received. Be the first one to comment.
+    </div>
+    
+    
+    <div v-for="comment in comments" :key="comment.ref" class="com-wrapper row row-left row-top space-s rounded">
+        <div class="com-avatar">
+            <div class="com-initial" v-if="!comment.isAdmin">{{ comment.user.substring(0,1).toUpperCase() }}</div>
+            <img :src="adminAvatar" v-if="comment.isAdmin">
+        </div>
+        
+        <div class="com-body text-xs">
+            <div class="com-title">
+                <span class="com-name bold text-s" :class="{'theme-color': comment.isAdmin}">{{ comment.user }}</span>
+                <span class="com-date text-xxs sc">{{ dateFormat(comment.time) }}</span>
+                <span class="text-xs minor" v-if="comment.isAdmin" title="Administrator"><i class="fa fa-user-circle-o" aria-hidden="true"></i></span>
+                <span class="text-xs minor pointer" title="Email" v-if="comment.email"><a :href="'mailto:'+comment.email"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></span>
+                <span class="text-xs minor pointer" title="Website" v-if="comment.url"><a :href="comment.url" target="_blank" rel="nofollow"><i class="fa fa-external-link" aria-hidden="true"></i></a></span>
+            </div>
+            <div class="com-content" v-html="comment.content">
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+<script>        
+    mixins.push({
+        data: {
+            comments: [],
+            miniLoader: false,
+            adminAvatar: "",
+            noComments: false,
+            openForm: false,
+            hashKey: null,
+            ts: null,
+            user: "",
+            url: "",
+            email: "",
+            content: "",
+            admin: "",
+            errorMessage: "Test",
+            errorUser: false,
+            errorEmail: false,
+            errorContent: false,
+            errorReturn: false,
+            lockSubmit: false,
+            now: moment(),
+            lastSubmitted: ""
+        },
+        methods: {
+            openCommentForm() {
+                this.openForm = true
+            },
+            dateFormat(ts) {
+                let rs = ""
+                let thatTime = moment(ts*1000)
+                let tsDiff = this.now.diff(thatTime, 'seconds')
+                if (tsDiff < 10) {
+                    rs = "Just now"
+                }
+                else if (tsDiff < 60) {
+                    rs = tsDiff+" seconds ago"
+                }
+                else if (tsDiff < 3600) {
+                    rs = Math.floor(tsDiff / 60)+" minutes ago"
+                }
+                else if (tsDiff < 86400) {
+                    rs = Math.floor(tsDiff / 3600)+" hours "
+                    if (Math.floor(tsDiff % 3600) != 0) {
+                        rs += Math.floor(tsDiff % 3600 / 60)+" minutes "
+                    }
+                    rs += "ago"
+                }
+                else if (tsDiff < 691200) {
+                    rs = Math.floor(tsDiff / 86400)+" days ago "
+                }
+                else {
+                    rs = thatTime.format("MMM D, YYYY")
+                }
+                return rs
+            },
+            requestSiteKey() {
+                this.errorUser = false
+                this.errorEmail = false
+                this.errorContent = false
+                this.errorReturn = false
+                var self = this
+                if(!this.hashKey) {
+                    reqwest({
+                        url: 'https://elated-poincare-100f1b.netlify.app/.netlify/functions/initialize-post/831610a3a7ac11099de13c5bbb40778b',
+                        type: 'json',
+                        success: function (resp) {
+                            if(resp.key && resp.ts) {
+                                self.hashKey = resp.key
+                                self.ts = resp.ts
+                            }
+                        }
+                    })
+                }
+            },
+            createComment() {
+                exitSubmit = false
+                if (this.user.length < 2) {
+                    this.errorUser = true
+                    exitSubmit = true
+                }
+                if (/^([A-Za-z0-9_\-\.\u4e00-\u9fa5])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,8})$/.test(this.email) === false) {
+                    this.errorEmail = true
+                    exitSubmit = true
+                }
+                if (this.content.length < 8) {
+                    this.errorContent = true
+                    exitSubmit = true
+                }
+                else if (this.content == this.lastSubmitted) {
+                    this.errorReturn = true
+                    this.errorMessage = "Do not submit the same content twice. If a comment is pending approval, please wait for the admin to act."
+                    exitSubmit = true
+                }
+                if (exitSubmit) {
+                    this.lockSubmit = false
+                    return false
+                }
+                else {
+                    this.lockSubmit = true
+                    let data = {
+                        hashKey: this.hashKey,
+                        postID: "831610a3a7ac11099de13c5bbb40778b",
+                        ts: this.ts,
+                        postTitle: "1.3.0发布",
+                        postURL: "/%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/1.3.0-release/",
+                        user: this.user,
+                        email: this.email,
+                        content: this.content,
+                        url: this.url,
+                        admin: this.admin
+                    }
+
+                    var self = this
+                    reqwest({                
+                        url: 'https://elated-poincare-100f1b.netlify.app/.netlify/functions/create-comment/831610a3a7ac11099de13c5bbb40778b?data='+JSON.stringify(data),
+                        method: "get",                     
+                        success: function(resp) {
+                            //console.log (resp)
+                            if (resp.ref) {
+                                self.lastSubmitted = data.content
+                                self.comments.unshift(data)
+                                self.noComments = false
+                                self.content = ""
+                                self.ts = null
+                                self.hashKey = null
+                                self.openForm = false
+                            }
+                            else if (resp.error) {
+                                self.errorReturn = true
+                                self.errorMessage = resp.message
+                            }
+                        },
+                        error: function(err) {
+                            self.errorReturn = true
+                            if (err.message) {
+                                self.errorMessage = err.message
+                            }
+                            else {
+                                self.errorMessage = "Unable to submit. Error: "+JSON.stringify(err)
+                            }
+                        },
+                        complete: function(resp) {
+                            self.lockSubmit = false
+                        }
+                    })
+                }
+            }
+        },
+        mounted() {
+            this.miniLoader = true
+            var self = this
+            setTimeout(function(){
+                reqwest({
+                    url: 'https://elated-poincare-100f1b.netlify.app/.netlify/functions/get-comment/831610a3a7ac11099de13c5bbb40778b',
+                    type: 'json',
+                    success: function (resp) {
+                        if (resp.data) {
+                            if (resp.data.length > 0) {
+                                setTimeout(function() {
+                                    self.comments = resp.data
+                                    self.miniLoader = false
+                                }, 300)
+                                return
+                            }
+                        }
+                        self.noComments = true
+                        self.miniLoader = false
+                        //console.log(resp)
+                        
+                    },
+                    error: function () {
+                        self.miniLoader = false
+                    }
+                })
+            }, 1000)
+        }
+    })
+</script>
+   
+    <div class="article-adjacent full-wrapper row row-top row-loose row-wrap text-xs sc">
+        <div class="space-vh"><i class="fa fa-arrow-left" aria-hidden="true"></i> Previous: <a href="/%E9%9A%8F%E7%AC%94/zai-jian-duo-shuo/">再见，多说</a></div>
+        <div class="space-vh">Next: <a href="/%E9%9A%8F%E7%AC%94/imitate-ios-reader-mode-on-webpage/">在Mobile网页上模拟iOS Safari的阅读模式</a> <i class="fa fa-arrow-right" aria-hidden="true"></i></div>
+    </div>
+</section>
+<script>
+    mixins.push({
+        data: {
+            anchorPos: [],
+            activeAnchor: -1
+        },
+        methods: {
+            bindToc() {                
+                let allAnchors = document.querySelectorAll("#article-toc ul li a")
+                if (allAnchors.length>0) {
+                    for (anchor of allAnchors) {
+                        let targetID = anchor.hash
+                        this.anchorPos.push(document.getElementById(targetID.substring(1)).offsetTop)
+                    }
+                    console.log(this.anchorPos)
+                    window.addEventListener('scroll', this.updateToc) 
+                }
+            },
+            updateToc() {
+                if (this.anchorPos.length>0) {
+                    for (an in this.anchorPos) {
+                        if (this.anchorPos[an] <= this.windowScrolled) {
+                            this.activeAnchor = an
+                        }
+                        else {
+                            break;
+                        }
+                    }
+                    
+                    let allAnchors = document.querySelectorAll("#article-toc ul li")
+                    for (let i=0; i<allAnchors.length; i++) {
+                        if (i==this.activeAnchor) {
+                            allAnchors[i].classList.add("toc-highlight")
+                        }
+                        else {
+                            allAnchors[i].classList.remove("toc-highlight")
+                        }
+                    }
+                }
+            }
+        },
+        mounted() {
+            window.setTimeout(this.bindToc, 500)  
+        }
+    })
+
+</script>
+
+          </div>
+          
+        </main>
+
+        <footer class="main-wrapper" :class="{blurred: showLoader}">
+  <div class="space-s between to-center">
+    <div class="space-xxs to-center">
+      <div class="h-list sc text-l">
+        <ul>
+          
+          <li class="contact-item"><a href="http://weibo.com/" target="_blank" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a></li>
+          
+          <li class="contact-item"><a href="https://twitter.com/" target="_blank" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+          
+          <li class="contact-item"><a href="http://instagram.com/" target="_blank" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+          
+        </ul>
+      </div>
+    </div>
+    <div class="text-xs sc">&copy; Bo-blog 2020.<br>Powered by <a href="/" target="_blank">Project Haru</a></div>
+  </div>
+</footer>
+
+<div class="loader ease" :class="{'loader-on': showLoader}">
+  <div class="lightbox"></div>
+  <div class="loading">
+    <i class="left"></i>
+    <i class="middle"></i>
+    <i class="right"></i>
+  </div>
+</div>
+    </div> 
+    
+  <script>
+  Vue.component ('place-holder', {
+      template: "<div class=\"place-holder\" :style=\"{width: phWidth}\">.</div>",
+      props: ['width'],
+      computed: {
+          phWidth() {
+              return this.width + "%"
+          }
+      }
+  })
+  var app = new Vue({
+      el: "#canvas",
+      mixins: mixins,
+      data: {
+         menuOpen: false,
+         windowScrolled: false,
+         windowScrollUp: false,
+         showLoader: false,
+         activeNav: 'index',
+      },
+      methods: {
+          showMenu () {
+              this.menuOpen = !this.menuOpen;
+          },
+          windowScroller () {
+              var scrolled = document.documentElement.scrollTop || document.body.scrollTop
+              this.windowScrollUp = scrolled < this.windowScrolled
+              this.windowScrolled = scrolled
+          },
+          scrollToTop () {
+              window.scrollTo({ 
+                  top: 0, 
+                  behavior: "smooth" 
+              })
+          },
+          lightsOn () {
+              var self = this
+              setTimeout(function() {
+                  self.scrollToTop ()
+                  self.showLoader = false
+              }, 600)
+          }
+      },
+      mounted () { 
+          window.addEventListener('scroll', this.windowScroller) 
+          if (location.hash && location.hash!=="#") {
+            window.setTimeout(function(){
+                let dest = location.hash.substring(1)
+                document.getElementById(dest).scrollIntoView()                
+            }, 500)  
+        }
+      },
+      computed: {
+          hideHeader() {
+              return this.windowScrolled > 30
+          },
+          shrinkHeader() {
+              return this.windowScrolled > 30 && this.windowScrollUp
+          },                
+      }
+  })
+</script>  
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      document.querySelectorAll('pre code').forEach((block) => {
+        hljs.highlightBlock(block);
+      });
+    });
+  </script>
+  </body>
+</html>

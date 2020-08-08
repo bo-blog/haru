@@ -10,16 +10,16 @@
   <script src="https://cdn.bootcss.com/reqwest/2.0.5/reqwest.min.js"></script>
   <script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
   <link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.1/styles/monokai-sublime.min.css" rel="stylesheet">
-  <title>Test Playground</title>
+  <title>bW Archived</title>
 </head>
   <body>
     <script>
-      var mixins = {}
+      var mixins = []
     </script>
     <div id="canvas">
         <header class="full-wrapper bg space-xs" :class="{'hide-header': hideHeader, 'shrink-header': shrinkHeader, 'blurred': showLoader}">
   <div class="header-wrap main-wrapper row row-loose">
-    <div class="col-5 text-xl bolder site-name major"><a href="/">Test Playground</a></div>
+    <div class="col-5 text-xl bolder site-name major"><a href="/">bW Archived</a></div>
       <div class="col-5 menu pointer to-right" @click="showMenu()"><div class="text-l bold inline-block menu-btn" :class="{'menu-open': menuOpen}"><i class="fa fa-chevron-right" aria-hidden="true"></i></div></div>
       <nav class="nav-body col-8" :class="{'nav-open': menuOpen}">
         <ul class="h-list to-right sc">
@@ -39,41 +39,62 @@
   
   <article class="space-s full-wrapper bg-panel rounded article-animate" :style="{'animation-duration': animateArticles}">
     <div class="title-area bg-panel">
-        <div class="text-xs minor">Jan. 1, 2019</div>  
-        <div class="text-l bold theme-color"><a href="/Music/Japanese/%E9%8A%80%E3%81%AE%E9%BE%8D%E3%81%AE%E8%83%8C%E3%81%AB%E4%B9%97%E3%81%A3%E3%81%A6/">銀の龍の背に乗って</a></div>
+        <div class="text-xs minor">Dec. 18, 2016</div>  
+        <div class="text-l bold theme-color"><a href="/%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/1.3.0-release/">1.3.0发布</a></div>
     </div>
     <div class="body-text between space-vh"> 
-        <p>あの蒼ざめた海の彼方で<br>在那苍暗大海彼端</p>
-<p>今まさに誰かが傷（いた）んでいる<br>有人现正承受伤痛</p>
-<p>まだ飛べない雛たちみたいに<br>如尚未飞起的雏鸟</p>
-<p>僕はこの非力を嘆いている<br>我为自身无力叹息</p>
-<p>急げ悲しみ 翼に変われ<br>快将悲伤化成羽翼</p>
-<p>急げ傷跡 羅針盤になれ<br>快把伤痕当做罗盘</p>
-<p>まだ飛べない雛たちみたいに<br>如尚未飞起的雏鸟</p>
-<p>僕はこの非力を嘆いている<br>我为自身无力叹息</p>
-<p>夢が迎えに来てくれるまで<br>直到梦想成真之前</p>
-<p>震えて待ってるだけだった<br>昨日昨日我仍惴惴而待</p>
-<p>明日 僕は龍の足元へ<br>明日我将顺龙脚下 </p>
-<p>崖を 登り 呼ぶよ「さあ、行こうぜ」<br>登上高崖大喊“来，出发吧”</p>
-<p>銀の龍の背に乗って<br>骑在银龙的背上</p>
-<p>届けに行こう 命の砂漠へ<br>前往生命的沙漠吧</p>
+        <p>1.3.0于今天发布。此版带来这样一些新特性。</p>
+<h2 id="toc-%E6%AF%8F%E5%88%86%E9%92%9F%E8%87%AA%E5%8A%A8%E4%BF%9D%E5%AD%98%E8%8D%89%E7%A8%BF">每分钟自动保存草稿</h2><p>启用此功能可以避免意外退出丢失正在编辑的内容。建议写长文时打开。</p>
+<h2 id="toc-%E5%8F%AF%E4%BB%A5%E7%A6%81%E7%94%A8%E5%86%85%E9%83%A8%E8%AE%A1%E6%95%B0%E5%8A%9F%E8%83%BD%E5%87%8F%E5%B0%91%E6%95%B0%E6%8D%AE%E5%BA%93%E5%86%99%E5%85%A5%E6%93%8D%E4%BD%9C">可以禁用内部计数功能减少数据库写入操作</h2><p>当并发访问较高时，建议打开此项。在该模式下将牺牲一些统计功能，带来的是性能的提升。在不进行后台操作的情况下，用户的访问几乎不执行任何数据库写入操作。</p>
+<h2 id="toc-%E5%85%B6%E4%BB%96%E4%B8%80%E4%BA%9B%E5%B0%8F%E7%9A%84%E6%94%B9%E8%BF%9B">其他一些小的改进</h2>
+<ul>
+<li>在输入Tag时，使用中文逗号也能完成添加，不用频繁切换输入法了。</li>
+<li>在iOS系统下的字体显示问题得到了调整。</li>
+<li>微调了默认主题，改进了logo的显示方式和移动版的下拉菜单。</li>
+</ul>
+<p>Enjoy.</p>
+<p><img src="https://www.bo-blog.com/bw/storage/07742dde_2635-photography_landscape_wallpaper.jpg" alt=""></p>
+
+    </div>
+    <div class="article-info between text-xs sc">
+        <div class="space-vh"><i class="fa fa-folder-o" aria-hidden="true"></i> <a href="/category/%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/">快速上手</a></div>
+        
+        <div class="space-vh"><i class="fa fa-tag" aria-hidden="true"></i>
+            <div class="h-list inline-block">
+                <ul>
+                    
+                    <li><a href="/tags/#%E7%A8%8B%E5%BA%8F%E5%8F%91%E5%B8%83">程序发布</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>    
+  </article>
+  
+  <article class="space-s full-wrapper bg-panel rounded article-animate" :style="{'animation-duration': animateArticles}">
+    <div class="title-area bg-panel">
+        <div class="text-xs minor">Oct. 31, 2016</div>  
+        <div class="text-l bold theme-color"><a href="/%E9%9A%8F%E7%AC%94/imitate-ios-reader-mode-on-webpage/">在Mobile网页上模拟iOS Safari的阅读模式</a></div>
+    </div>
+    <div class="body-text between space-vh"> 
+        <p>iOS的Safari上有一个很好用的功能 - 阅读模式 （Reader Mode）。当网页的排版不适合手机阅读时，点一下地址栏左侧的阅读模式按钮，就能获得舒适的阅读体验。</p>
+<p>比较阅读模式和一个为手机优化的图文混排网页，可以发现，在阅读模式下，所有图片的宽度都沾满屏幕，而文字距屏幕的边界都有一定的空间。</p>
 
         <div class="to-right">
-          <div class="button space-vh rounded text-s ease"><a href="/Music/Japanese/%E9%8A%80%E3%81%AE%E9%BE%8D%E3%81%AE%E8%83%8C%E3%81%AB%E4%B9%97%E3%81%A3%E3%81%A6/#more"><i class="fa fa-angle-right" aria-hidden="true"></i> More...</a></div> 
+          <div class="button space-vh rounded text-s ease"><a href="/%E9%9A%8F%E7%AC%94/imitate-ios-reader-mode-on-webpage/#more"><i class="fa fa-angle-right" aria-hidden="true"></i> More...</a></div> 
         </div>
     </div>
     <div class="article-info between text-xs sc">
-        <div class="space-vh"><i class="fa fa-folder-o" aria-hidden="true"></i> <a href="/category/Music/Japanese/">Japanese</a></div>
+        <div class="space-vh"><i class="fa fa-folder-o" aria-hidden="true"></i> <a href="/category/%E9%9A%8F%E7%AC%94/">随笔</a></div>
         
         <div class="space-vh"><i class="fa fa-tag" aria-hidden="true"></i>
             <div class="h-list inline-block">
                 <ul>
                     
-                    <li><a href="/tags/#test">test</a></li>
+                    <li><a href="/tags/#%E7%BD%91%E9%A1%B5">网页</a></li>
                     
-                    <li><a href="/tags/#Japanese">Japanese</a></li>
-                    
-                    <li><a href="/tags/#Pop">Pop</a></li>
+                    <li><a href="/tags/#safari">safari</a></li>
                     
                 </ul>
             </div>
@@ -84,58 +105,25 @@
   
   <article class="space-s full-wrapper bg-panel rounded article-animate" :style="{'animation-duration': animateArticles}">
     <div class="title-area bg-panel">
-        <div class="text-xs minor">Aug. 2, 2018</div>  
-        <div class="text-l bold theme-color"><a href="/Music/English/twinkle-twinkle-little-star/">Twinkle Twinkle Little Star</a></div>
+        <div class="text-xs minor">Sept. 23, 2016</div>  
+        <div class="text-l bold theme-color"><a href="/%E9%9A%8F%E7%AC%94/invite-test-120/">邀请测试：1.2.0 beta</a></div>
     </div>
     <div class="body-text between space-vh"> 
-        <p><img src="https://picsum.photos/400" alt=""></p>
-<p>Twinkle, twinkle, little star<br>How I wonder what you are<br>Up above the world so high<br>Like a diamond in the sky<br>Twinkle, twinkle little star<br>How I wonder what you are</p>
-<p>When the blazing sun is gone<br>When he nothing shines upon<br>Then you show your little light<br>Twinkle, twinkle, all the night<br>Twinkle, twinkle, little star<br>How I wonder what you are</p>
+        <p>2016/11/26 1.2.1已发，本文失效。</p>
+<p>邀请您参与 1.2.0 beta测试！</p>
+
+<ul>
+<li>分类和自定义模块可以拖动排序了。</li>
+<li>在支持 mbstring 扩展的服务器上，可以在创建文章时，从中文标题转换出拼音并自动填入文章ID。</li>
+<li>测试功能：RESTful API接口，暂支持 articles （日志）的GET接口和 users （作者）的GET接口。</li>
+</ul>
+<p><strong>升级方法：</strong><br>可以下载文末的压缩包，解压缩后直接上传到 bW 所在目录下覆盖原来的文件。</p>
+<p>同时，借助该版本的 API 接口，将尝试为 bW 官网建设一个用户日志的聚合栏目。如果您愿意这个（制作中的）聚合器自动收集您使用bW发布的内容，可以在本文下回复，提供您的 bW 站点网址。如果网站内容合适，我将与你联系，邀请您创建一组API Key和API Secret，以便程序通过API接口获取您的日志更新。</p>
+<p><a href="http://xiaofengtest.qiniudn.com/storage/1b730cb0_v1110-beta.zip">点此下载1.2.0 beta升级包</a></p>
 
     </div>
     <div class="article-info between text-xs sc">
-        <div class="space-vh"><i class="fa fa-folder-o" aria-hidden="true"></i> <a href="/category/Music/English/">English</a></div>
-        
-        <div class="space-vh"><i class="fa fa-tag" aria-hidden="true"></i>
-            <div class="h-list inline-block">
-                <ul>
-                    
-                    <li><a href="/tags/#English">English</a></li>
-                    
-                    <li><a href="/tags/#%E5%84%BF%E6%AD%8C">儿歌</a></li>
-                    
-                </ul>
-            </div>
-        </div>
-        
-    </div>    
-  </article>
-  
-  <article class="space-s full-wrapper bg-panel rounded article-animate" :style="{'animation-duration': animateArticles}">
-    <div class="title-area bg-panel">
-        <div class="text-xs minor">Jul. 21, 2018</div>  
-        <div class="text-l bold theme-color"><a href="/Test/why/">Where have you been?</a></div>
-    </div>
-    <div class="body-text between space-vh"> 
-        <p>Netus justo habitasse justo hac ante sagittis. Habitant mauris, pede suspendisse fames, magnis pulvinar lacinia. Non tellus orci. Feugiat.</p>
-<p>Pulvinar euismod malesuada integer nonummy feugiat in ornare aliquet lacus rutrum quis tortor aenean aptent. Elit aliquet dictum habitant nulla. Natoque dictum primis parturient ullamcorper id. Non blandit. Ridiculus. Natoque. Tellus natoque ultricies rutrum sociis nullam sociosqu risus. Leo vehicula.</p>
-<p>Purus sem, luctus, ut proin euismod erat. Sociis bibendum vel Laoreet cubilia proin, adipiscing diam semper facilisi lorem congue dapibus. Aliquam sollicitudin, elit penatibus gravida tempor platea fermentum. Accumsan auctor conubia pellentesque malesuada convallis sociis purus rhoncus. Suspendisse magnis vehicula interdum.</p>
-
-    </div>
-    <div class="article-info between text-xs sc">
-        <div class="space-vh"><i class="fa fa-folder-o" aria-hidden="true"></i> <a href="/category/Test/">Test</a></div>
-        
-        <div class="space-vh"><i class="fa fa-tag" aria-hidden="true"></i>
-            <div class="h-list inline-block">
-                <ul>
-                    
-                    <li><a href="/tags/#English">English</a></li>
-                    
-                    <li><a href="/tags/#%E4%B8%AD%E6%96%87">中文</a></li>
-                    
-                </ul>
-            </div>
-        </div>
+        <div class="space-vh"><i class="fa fa-folder-o" aria-hidden="true"></i> <a href="/category/%E9%9A%8F%E7%AC%94/">随笔</a></div>
         
     </div>    
   </article>
@@ -148,13 +136,15 @@
           
           <li class="page-actived bold">4</li>
           
+          <li class="page-next"><a href="page/5/" @click.prevent="pageSwitch(5)"><i class="fa fa-chevron-right" title="Next"></i></a></li>
+          
       </ul>
     </div>
   </div>
 </section>
 <div id="more-articles"></div>
 <script>
-    mixins = {
+    mixins.push({
         data: {
             articleIdx: 0,
             articles: '',
@@ -201,7 +191,7 @@
                 return 0.8 * this.articleIdx + 's'
             }
         }
-    }
+    })
 </script>
 
           </div>
@@ -216,37 +206,19 @@
         <li>
           
           
-          <a href="/category/About/">About</a> <span class="slimmer minor text-xxs">(4)</span>
+          <a href="/category/%E4%B8%BB%E9%A2%98/">主题</a> <span class="slimmer minor text-xxs">(4)</span>
         </li>
         
         <li>
           
           
-          <a href="/category/Music/">Music</a> <span class="slimmer minor text-xxs">(5)</span>
-        </li>
-        
-        <li>
-          &nbsp; 
-          <span class="text-xxs" aria-hidden="true"> └ </span>
-          <a href="/category/Music/English/">English</a> <span class="slimmer minor text-xxs">(2)</span>
-        </li>
-        
-        <li>
-          &nbsp; 
-          <span class="text-xxs" aria-hidden="true"> └ </span>
-          <a href="/category/Music/Japanese/">Japanese</a> <span class="slimmer minor text-xxs">(2)</span>
-        </li>
-        
-        <li>
-          &nbsp; 
-          <span class="text-xxs" aria-hidden="true"> └ </span>
-          <a href="/category/Music/%E4%B8%AD%E6%96%87/">中文</a> <span class="slimmer minor text-xxs">(1)</span>
+          <a href="/category/%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/">快速上手</a> <span class="slimmer minor text-xxs">(4)</span>
         </li>
         
         <li>
           
           
-          <a href="/category/Test/">Test</a> <span class="slimmer minor text-xxs">(3)</span>
+          <a href="/category/%E9%9A%8F%E7%AC%94/">随笔</a> <span class="slimmer minor text-xxs">(10)</span>
         </li>
         
       </ul>
@@ -259,23 +231,25 @@
     <div class="h-list tag-list text-xs">
       <ul>
         
-        <li><a href="/tags/#test">test (17)</a></li>
+        <li><a href="/tags/#%E7%A8%8B%E5%BA%8F%E5%8F%91%E5%B8%83">程序发布 (3)</a></li>
         
-        <li><a href="/tags/#English">English (13)</a></li>
+        <li><a href="/tags/#%E4%B8%BB%E9%A2%98%E5%8F%91%E5%B8%83">主题发布 (3)</a></li>
         
-        <li><a href="/tags/#%E4%B8%AD%E6%96%87">中文 (6)</a></li>
+        <li><a href="/tags/#%E5%A4%9A%E8%AF%B4">多说 (2)</a></li>
         
-        <li><a href="/tags/#Japanese">Japanese (4)</a></li>
+        <li><a href="/tags/#%E6%96%87%E6%A1%A3">文档 (2)</a></li>
         
-        <li><a href="/tags/#Pop">Pop (4)</a></li>
+        <li><a href="/tags/#%E4%B8%83%E7%89%9B">七牛 (1)</a></li>
         
-        <li><a href="/tags/#Folk">Folk (4)</a></li>
+        <li><a href="/tags/#%E6%95%99%E7%A8%8B">教程 (1)</a></li>
         
-        <li><a href="/tags/#Small">Small (3)</a></li>
+        <li><a href="/tags/#https">https (1)</a></li>
         
-        <li><a href="/tags/#Chinese">Chinese (2)</a></li>
+        <li><a href="/tags/#%E7%BD%91%E6%98%93%E5%8D%9A%E5%AE%A2">网易博客 (1)</a></li>
         
-        <li><a href="/tags/#%E5%84%BF%E6%AD%8C">儿歌 (2)</a></li>
+        <li><a href="/tags/#%E7%BD%91%E9%A1%B5">网页 (1)</a></li>
+        
+        <li><a href="/tags/#safari">safari (1)</a></li>
         
       </ul>
     </div>
@@ -287,7 +261,7 @@
     <div class="v-list link-list text-xs">
       <ul>                      
         
-        <li><a href="https://www.bo-blog.com/bw/" target="_blank">Bo-blog</a></li>
+        <li><a href="https://www.bo-blog.com/" target="_blank">Bo-blog</a></li>
         
         <li><a href="https://baidu.com" target="_blank">Baidu</a></li>
         
@@ -316,7 +290,7 @@
         </ul>
       </div>
     </div>
-    <div class="text-xs sc">&copy; Admin 2020.<br>Powered by <a href="/" target="_blank">Project Haru</a></div>
+    <div class="text-xs sc">&copy; Bo-blog 2020.<br>Powered by <a href="/" target="_blank">Project Haru</a></div>
   </div>
 </footer>
 
@@ -342,7 +316,7 @@
   })
   var app = new Vue({
       el: "#canvas",
-      mixins: [mixins],
+      mixins: mixins,
       data: {
          menuOpen: false,
          windowScrolled: false,
@@ -374,7 +348,13 @@
           }
       },
       mounted () { 
-          window.addEventListener('scroll', this.windowScroller)                
+          window.addEventListener('scroll', this.windowScroller) 
+          if (location.hash && location.hash!=="#") {
+            window.setTimeout(function(){
+                let dest = location.hash.substring(1)
+                document.getElementById(dest).scrollIntoView()                
+            }, 500)  
+        }
       },
       computed: {
           hideHeader() {
