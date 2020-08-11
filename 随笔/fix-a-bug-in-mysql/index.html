@@ -26,6 +26,11 @@
           <li class="bg-sc-hover space-vh rounded ease" :class="{'nav-active': activeNav=='index' || activeNav=='category' || activeNav=='article'}"><a href="/">Home</a></li>
           <li class="bg-sc-hover space-vh rounded ease" :class="{'nav-active': activeNav=='tag'}"><a href="/tags/">Tags</a></li>
           <li class="bg-sc-hover space-vh rounded ease" :class="{'nav-active': activeNav=='archive'}"><a href="/archives/">Archive</a></li>
+          
+          
+          <li class="bg-sc-hover space-vh rounded ease"><a href="https://bw.bo-blog.com" target="_blank">bW首页</a></li>
+          
+          
         </ul>
       </nav>
     </div>
@@ -43,7 +48,8 @@
       <div class="article-wrapper row row-loose row-top">
         <div>
             <div class="body-text between space-vh">
-                <p>由于自第一版起就存在的一个bug，内置评论在MySQL下无法正常添加并显示。当然之前大部分同学都使用多说的服务，所以问题直到1.4.0的内置评论开启后才显露。（感谢 <a href="http://www.qq977.com/blog/">山隈</a>）</p>
+                <p><strong> ⚠️ 这篇日志的内容是关于已不再维护的Bo-Blog Wind。仅供存档，不建议您继续使用。如需了解新版程序，请访问首页。 </strong></p>
+<p>由于自第一版起就存在的一个bug，内置评论在MySQL下无法正常添加并显示。当然之前大部分同学都使用多说的服务，所以问题直到1.4.0的内置评论开启后才显露。（感谢 <a href="http://www.qq977.com/blog/">山隈</a>）</p>
 <h2 id="toc-%E4%BF%AE%E5%A4%8D%E6%96%B9%E6%B3%95%EF%BC%9A">修复方法：</h2><p><strong>如果你已经导入过多说</strong>，那么数据库里很可能只导入了一条评论，且文章的评论数已被更新。<br>请先在phpMyAdmin等工具中，管理所在的database，执行：</p>
 
 <pre><code>UPDATE `articles` SET `aComments`=0;

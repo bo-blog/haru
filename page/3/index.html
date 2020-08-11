@@ -26,6 +26,11 @@
           <li class="bg-sc-hover space-vh rounded ease" :class="{'nav-active': activeNav=='index' || activeNav=='category' || activeNav=='article'}"><a href="/">Home</a></li>
           <li class="bg-sc-hover space-vh rounded ease" :class="{'nav-active': activeNav=='tag'}"><a href="/tags/">Tags</a></li>
           <li class="bg-sc-hover space-vh rounded ease" :class="{'nav-active': activeNav=='archive'}"><a href="/archives/">Archive</a></li>
+          
+          
+          <li class="bg-sc-hover space-vh rounded ease"><a href="https://bw.bo-blog.com" target="_blank">bW首页</a></li>
+          
+          
         </ul>
       </nav>
     </div>
@@ -43,7 +48,8 @@
         <div class="text-l bold theme-color"><a href="/%E9%9A%8F%E7%AC%94/fix-a-bug-in-mysql/">运行在MySQL下的一个bug会导致无法正常添加评论</a></div>
     </div>
     <div class="body-text between space-vh"> 
-        <p>由于自第一版起就存在的一个bug，内置评论在MySQL下无法正常添加并显示。当然之前大部分同学都使用多说的服务，所以问题直到1.4.0的内置评论开启后才显露。（感谢 <a href="http://www.qq977.com/blog/">山隈</a>）</p>
+        <p><strong> ⚠️ 这篇日志的内容是关于已不再维护的Bo-Blog Wind。仅供存档，不建议您继续使用。如需了解新版程序，请访问首页。 </strong></p>
+<p>由于自第一版起就存在的一个bug，内置评论在MySQL下无法正常添加并显示。当然之前大部分同学都使用多说的服务，所以问题直到1.4.0的内置评论开启后才显露。（感谢 <a href="http://www.qq977.com/blog/">山隈</a>）</p>
 <h2 id="toc-%E4%BF%AE%E5%A4%8D%E6%96%B9%E6%B3%95%EF%BC%9A">修复方法：</h2><p><strong>如果你已经导入过多说</strong>，那么数据库里很可能只导入了一条评论，且文章的评论数已被更新。<br>请先在phpMyAdmin等工具中，管理所在的database，执行：</p>
 
 <pre><code>UPDATE `articles` SET `aComments`=0;
@@ -69,7 +75,8 @@ TRUNCATE `comments`
         <div class="text-l bold theme-color"><a href="/%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/release-note-1400/">1.4.0已发布暨多说评论导入工具</a></div>
     </div>
     <div class="body-text between space-vh"> 
-        <h2 id="toc-1.4.0%E5%B7%B2%E7%BB%8F%E6%8E%A8%E9%80%81%E5%88%B0GitHub">1.4.0已经推送到GitHub</h2>
+        <p><strong> ⚠️ 这篇日志的内容是关于已不再维护的Bo-Blog Wind。仅供存档，不建议您继续使用。如需了解新版程序，请访问首页。 </strong></p>
+<h2 id="toc-1.4.0%E5%B7%B2%E7%BB%8F%E6%8E%A8%E9%80%81%E5%88%B0GitHub">1.4.0已经推送到GitHub</h2>
 <ul>
 <li>新增：内置评论回归。取消已停运的多说服务设置。</li>
 <li>改进：完善了翻页，现在可以快速定位到特定分页。（默认主题）</li>
@@ -111,11 +118,10 @@ TRUNCATE `comments`
         <div class="text-l bold theme-color"><a href="/%E9%9A%8F%E7%AC%94/zai-jian-duo-shuo/">再见，多说</a></div>
     </div>
     <div class="body-text between space-vh"> 
-        <h2 id="toc-2017%E5%B9%B44%E6%9C%8822%E6%97%A5%E6%9B%B4%E6%96%B0">2017年4月22日更新</h2><p>由于多说的轰然倒塌，原生评论“被迫”回归了，而且将比移除前更完善…… 而且，完整导入多说所有评论的小工具也做好了。</p>
+        <p><strong> ⚠️ 这篇日志的内容是关于已不再维护的Bo-Blog Wind。仅供存档，不建议您继续使用。如需了解新版程序，请访问首页。 </strong></p>
+<p>由于多说的轰然倒塌，原生评论“被迫”回归了，而且将比移除前更完善…… 而且，完整导入多说所有评论的小工具也做好了。</p>
 <p>可在本篇底下测试新的评论功能。等再完善一下后台评论管理就push。</p>
-<p>导出多说数据，请立即登录多说，然后直接进入 <a href="http://XXX.duoshuo.com/admin/tools/export/">http://XXX.duoshuo.com/admin/tools/export/</a> (XXX是您的多说短域名）。按照下图，选择两个复选框，可导出一个zip文件备用。</p>
-<p><img src="http://xiaofengtest.qiniudn.com/storage/f4905b2c_Jietu20170422-233428.jpg?imageView2/2/w/800" alt=""></p>
-<p>再次提醒，6月1日之前务必导出完毕。</p>
+<p>导出多说数据，请立即登录多说，然后直接进入 <a href="http://XXX.duoshuo.com/admin/tools/export/">http://XXX.duoshuo.com/admin/tools/export/</a> (XXX是您的多说短域名）。按照下图，选择两个复选框，可导出一个zip文件备用。<br>再次提醒，6月1日之前务必导出完毕。</p>
 <p>《多说》官方发布公告，该服务将于6月1日关闭。</p>
 <p>很不幸，这也是bW内置的第三方评论服务。原本的设想是通过社会化评论系统，让评论功能的实现变得简单、省心。多说是一个相当友好、易用且定制度高的服务，此番关闭，着实可惜。</p>
 <p>但作为多说的用户，我仍然在无奈之余表示理解。做点惠及大众的实事不易，面对越来越严苛的环境和资金压力，坚持更不容易。</p>
@@ -242,25 +248,25 @@ TRUNCATE `comments`
     <div class="h-list tag-list text-xs">
       <ul>
         
-        <li><a href="/tags/#%E7%A8%8B%E5%BA%8F%E5%8F%91%E5%B8%83">程序发布 (3)</a></li>
+        <li><a href="/tags/#%E7%A8%8B%E5%BA%8F%E5%8F%91%E5%B8%83">程序发布 (6)</a></li>
         
-        <li><a href="/tags/#%E4%B8%BB%E9%A2%98%E5%8F%91%E5%B8%83">主题发布 (3)</a></li>
+        <li><a href="/tags/#%E4%B8%BB%E9%A2%98%E5%8F%91%E5%B8%83">主题发布 (6)</a></li>
         
-        <li><a href="/tags/#%E5%A4%9A%E8%AF%B4">多说 (2)</a></li>
+        <li><a href="/tags/#%E5%A4%9A%E8%AF%B4">多说 (4)</a></li>
         
-        <li><a href="/tags/#%E6%96%87%E6%A1%A3">文档 (2)</a></li>
+        <li><a href="/tags/#%E6%96%87%E6%A1%A3">文档 (4)</a></li>
         
-        <li><a href="/tags/#%E4%B8%83%E7%89%9B">七牛 (1)</a></li>
+        <li><a href="/tags/#%E4%B8%83%E7%89%9B">七牛 (2)</a></li>
         
-        <li><a href="/tags/#%E6%95%99%E7%A8%8B">教程 (1)</a></li>
+        <li><a href="/tags/#%E6%95%99%E7%A8%8B">教程 (2)</a></li>
         
-        <li><a href="/tags/#https">https (1)</a></li>
+        <li><a href="/tags/#https">https (2)</a></li>
         
-        <li><a href="/tags/#%E7%BD%91%E6%98%93%E5%8D%9A%E5%AE%A2">网易博客 (1)</a></li>
+        <li><a href="/tags/#%E7%BD%91%E6%98%93%E5%8D%9A%E5%AE%A2">网易博客 (2)</a></li>
         
-        <li><a href="/tags/#%E7%BD%91%E9%A1%B5">网页 (1)</a></li>
+        <li><a href="/tags/#%E7%BD%91%E9%A1%B5">网页 (2)</a></li>
         
-        <li><a href="/tags/#safari">safari (1)</a></li>
+        <li><a href="/tags/#safari">safari (2)</a></li>
         
       </ul>
     </div>
@@ -274,9 +280,7 @@ TRUNCATE `comments`
         
         <li><a href="https://www.bo-blog.com/" target="_blank">Bo-blog</a></li>
         
-        <li><a href="https://baidu.com" target="_blank">Baidu</a></li>
-        
-        <li><a href="https://google.com" target="_blank">Google</a></li>
+        <li><a href="https://bw.bo-blog.com" target="_blank">Bo-blog Wind主站</a></li>
         
       </ul>
     </div>

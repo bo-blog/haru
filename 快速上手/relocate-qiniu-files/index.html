@@ -26,6 +26,11 @@
           <li class="bg-sc-hover space-vh rounded ease" :class="{'nav-active': activeNav=='index' || activeNav=='category' || activeNav=='article'}"><a href="/">Home</a></li>
           <li class="bg-sc-hover space-vh rounded ease" :class="{'nav-active': activeNav=='tag'}"><a href="/tags/">Tags</a></li>
           <li class="bg-sc-hover space-vh rounded ease" :class="{'nav-active': activeNav=='archive'}"><a href="/archives/">Archive</a></li>
+          
+          
+          <li class="bg-sc-hover space-vh rounded ease"><a href="https://bw.bo-blog.com" target="_blank">bW首页</a></li>
+          
+          
         </ul>
       </nav>
     </div>
@@ -43,7 +48,8 @@
       <div class="article-wrapper row row-loose row-top">
         <div>
             <div class="body-text between space-vh">
-                <p>由于近期七牛云存储开始回收测试域名（ <a href="https://segmentfault.com/q/1010000015811678">https://segmentfault.com/q/1010000015811678</a> ），在测试域名被回收后，原先用这个域名上传并发布的日志中的图片将无法显示。暂且不评论七牛此举是否得当，但这么多的附件要重新上传，再一篇篇更新日志，显然给我们造成了巨大的困扰。</p>
+                <p><strong> ⚠️ 这篇日志的内容是关于已不再维护的Bo-Blog Wind。仅供存档，不建议您继续使用。如需了解新版程序，请访问首页。 </strong></p>
+<p>由于近期七牛云存储开始回收测试域名（ <a href="https://segmentfault.com/q/1010000015811678">https://segmentfault.com/q/1010000015811678</a> ），在测试域名被回收后，原先用这个域名上传并发布的日志中的图片将无法显示。暂且不评论七牛此举是否得当，但这么多的附件要重新上传，再一篇篇更新日志，显然给我们造成了巨大的困扰。</p>
 <p>为此，本文提供了迁移附件的指南，供有同样问题的用户参考。</p>
 <p>迁移需要用到的工具，请先下载：<br>qshell 命令行工具： <a href="https://developer.qiniu.com/kodo/tools/1302/qshell">https://developer.qiniu.com/kodo/tools/1302/qshell</a><br>bW Qiniu Fixer新旧附件路径替换插件：<a href="https://www.bo-blog.com/bw/storage/fcaa0297.zip">https://www.bo-blog.com/bw/storage/fcaa0297.zip</a></p>
 <h1 id="toc-%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4%EF%BC%9A">操作步骤：</h1><p>（以下假设被回收了域名的七牛空间名为 client，在同一区域下新建的空间名为 test4，请自行替换）<a name="more" id="more"></a></p>
