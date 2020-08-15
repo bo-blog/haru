@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.min.js"></script>
+
+    <title>Desktop Screen</title>
+</head>
+<body>
+    <section id="app">
+        <div class="date-display" v-html="dateDisp"></div>
+        <iframe src="clock/twelve-hour-clock.html" class="clock"></iframe>
+        <div class="weather-display" v-html="weatherDisp"></div>
+        <iframe id="weatherFrame" src="weather.html" class="weather"></iframe>
+    </section>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                dateDisp: "",
+                weatherDisp: "",
+            },
+            methods: {
+                updateDate(){
+                    let tt = new Date()
+                    let aa = tt.toDateString().split(" ")
+                    aa.pop()
+                    aa[0] += " &nbsp; · &nbsp; "
+                    this.dateDisp = aa.join(" ")
+                },
+                updateWeather(){
+                    document.getElementById('weatherFrame').contentWindow.location.reload(true);
+                },
+                updateAll(){
+                    this.updateDate()
+                    this.updateWeather()
+                }
+            },
+
+            mounted() {
+                this.updateDate()
+                setInterval (this.updateDate, 60000)
+                setInterval (this.updateWeather, 60000*15)
+            }
+        })
+        
+        
+    </script>
+</body>
+</html>

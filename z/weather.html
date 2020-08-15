@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Desktop Screen</title>
+</head>
+<body>
+    <div id="aW">
+    </div>
+    <script>
+        function update(resp) {
+            if (resp.weather) {
+                var text = resp.weather[0].description + " · 今日：" + Math.floor(resp.main.temp_min) + " ~ " +  Math.floor(resp.main.temp_max) + "℃ · 当前：" + Math.floor(resp.main.temp) + "℃"
+                document.getElementById("aW").innerHTML=text
+            }
+        }
+    </script>
+    <script src="http://api.openweathermap.org/data/2.5/weather?q=Shanghai&appid=f67fa06039fd9feea2e84280e2e8cbe9&lang=zh_cn&units=metric&callback=update"></script>
+</body>
+</html>
