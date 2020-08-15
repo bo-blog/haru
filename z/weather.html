@@ -13,7 +13,7 @@
     <script>
         function update(resp) {
             if (resp.weather) {
-                var text = resp.weather[0].description + " · 今日：" + Math.floor(resp.main.temp_min) + " ~ " +  Math.floor(resp.main.temp_max) + "℃ · 当前：" + Math.floor(resp.main.temp) + "℃"
+                var text = resp.weather[0].description + " · 当前温度： " + Math.floor(resp.main.temp) + "℃ · 湿度： " + resp.main.humidity
                 document.getElementById("aW").innerHTML=text
             }
         }
